@@ -280,7 +280,6 @@ header > nav > ul > li > a {
 	padding: 20px;
 }
 
-
 @media only screen and (min-width: 1000px){
 
 .wrapper{
@@ -463,6 +462,23 @@ header > nav > ul > li > a {
 	font-size: 18px;
 	color: #111;
 	font-weight: 600;	
+	letter-spacing: 2px;
+	font-family: 'Karla', sans-serif;
+	text-decoration: underline;
+}
+
+.sub-header{
+	font-size: 16px;
+	color: #111;
+	font-weight: 600;	
+	letter-spacing: 2px;
+	font-family: 'Karla', sans-serif;
+}
+
+.sub2-header{
+	font-size: 15px;
+	color: #111;
+	font-weight: 550;	
 	letter-spacing: 2px;
 	font-family: 'Karla', sans-serif;
 	text-decoration: underline;
