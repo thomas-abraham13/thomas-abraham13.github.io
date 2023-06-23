@@ -18,88 +18,91 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
- margin:0;
- padding:0;
- border:0;
- outline:0;
- font-size:100%;
- vertical-align:baseline;
- background:transparent;
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
 }
 
 body {
- line-height:1;
+	line-height:1;
 }
 
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section { 
- display:block;
+	display:block;
 }
 
 nav ul {
- list-style:none;
+	list-style:none;
 }
+
 blockquote, q {
- quotes:none;
+	quotes:none;
 }
 
 blockquote:before, blockquote:after,
 q:before, q:after {
- content:'';
- content:none;
+	content:'';
+	content:none;
 }
 
 a {
- margin:0;
- padding:0;
- font-size:100%;
- vertical-align:baseline;
- background:transparent;
+	margin:0;
+	padding:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
 }
 
 /* change colours to suit your needs */
 ins {
- background-color:#ff9;
- color:#000;
- text-decoration:none;
+	background-color:#ff9;
+	color:#000;
+	text-decoration:none;
 }
 
 /* change colours to suit your needs */
 mark {
- background-color:#ff9;
- color:#000; 
- font-style:italic;
- font-weight:bold;
+	background-color:#ff9;
+	color:#000; 
+	font-style:italic;
+	font-weight:bold;
 }
 
 del {
- text-decoration: line-through;
+	text-decoration: line-through;
 }
+
 abbr[title], dfn[title] {
- border-bottom:1px dotted;
- cursor:help;
+	border-bottom:1px dotted;
+	cursor:help;
 }
 
 table {
- border-collapse:collapse;
- border-spacing:0;
+	border-collapse:collapse;
+	border-spacing:0;
 }
 
 /* change border colour to suit your needs */
 hr {
- display:block;
- height:1px;
- border:0; 
- border-top:1px solid #cccccc;
- margin:1em 0;
- padding:0;
+	display:block;
+	height:1px;
+	border:0; 
+	border-top:1px solid #cccccc;
+	margin:1em 0;
+	padding:0;
 }
 
 input, select {
- vertical-align:middle;
+	vertical-align:middle;
 }
 
-/*Code Written By me*/
+/*Additions*/
+
 *{
 	text-decoration: none;
 	list-style-type:none; 
@@ -118,8 +121,6 @@ header{
 	width:100%;
 	height: 100px;
 }
-
-
 
 header .brand {
 	font-size: 24px;
@@ -153,34 +154,36 @@ header > nav > ul > li > a {
 	font-weight: 600;
 }
 
-@media only screen and (min-width: 1000px){
+@media only screen and (min-width: 1000px) {
+	
 	header .brand {
-	margin:  31px 0px;
-	text-align: left;
-	line-height: 38px;
-	padding: 0px 20px 0px 40px;
-	border-right:solid 2px #111;
-	float: left;  
-}
-header > nav > ul {
-	display: block;
-  margin: 20px 0px 0px 20px;
-  float: left;
-}
+		margin:  31px 0px;
+		text-align: left;
+		line-height: 38px;
+		padding: 0px 20px 0px 40px;
+		border-right:solid 2px #111;
+		float: left;  
+	}
 
-header > nav > ul > li {
-	display: inline-block;
-	float: left;
-	padding: 0px 16px;
-	text-align: center;
-}
+	header > nav > ul {
+		display: block;
+		margin: 20px 0px 0px 20px;
+		float: left;
+	}
 
-header > nav > ul > li > a {
-	font-size: 16px;
-	color: #111;
-	line-height: 60px;
-	text-transform: uppercase;
-}
+	header > nav > ul > li {
+		display: inline-block;
+		float: left;
+		padding: 0px 16px;
+		text-align: center;
+	}
+
+	header > nav > ul > li > a {
+		font-size: 16px;
+		color: #111;
+		line-height: 60px;
+		text-transform: uppercase;
+	}
 }
 
 .index-banner{
@@ -432,7 +435,14 @@ header > nav > ul > li > a {
 	font-weight: ;	
 	letter-spacing: 2px;
     font-family: 'Inconsolata', monospace;
-    
+}
+
+.summary{
+    font-size: 16px;
+	color: #111;
+	font-weight: ;	
+	letter-spacing: 2px;
+    font-family: 'Inconsolata', monospace;
 }
 
 .contact{
@@ -456,7 +466,6 @@ header > nav > ul > li > a {
 	letter-spacing: 2px;
 	font-family: 'Karla', sans-serif;
 	text-decoration: underline;
-
 }
 
 /*footer*/
@@ -472,7 +481,6 @@ footer ul{
 	width: fit-content;
 	float: left;
 	padding-left: 20px;
-
 }
 
 footer ul li{
@@ -484,7 +492,6 @@ footer ul li a{
 	font-size: 14px;
 	color: #fff;
 	line-height: 40px;
-	
 }
 .footer-sm{
 	width: 60px;
@@ -502,7 +509,6 @@ footer ul li a{
 	color: #fff;
 	line-height: 40px;
 	text-transform: uppercase;
-	
 }
 footer ul{
 	padding-right: 30px;
