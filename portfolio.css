@@ -263,7 +263,7 @@ header > nav > ul > li > a {
 	 
 }
 
-	.index-links div h3{
+.index-links div h3{
 	font-size: 20px;
 	color: #111;
 	text-align: center;
@@ -275,18 +275,17 @@ header > nav > ul > li > a {
 
 .author-article{
 	padding: 20px;
-
 }
 
 
 @media only screen and (min-width: 1000px){
 
-	.wrapper{
- width: 1000px;
- margin: 0 auto;
+.wrapper{
+	width: 1000px;
+	margin: 0 auto;
 }
 
-	.index-banner{
+.index-banner{
 	height: 525px;
 }
 
@@ -459,9 +458,6 @@ header > nav > ul > li > a {
 	text-decoration: underline;
 
 }
-
-
-
 
 /*footer*/
 footer{
