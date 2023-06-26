@@ -465,6 +465,7 @@ header > nav > ul > li > a {
 	letter-spacing: 2px;
 	font-family: 'Karla', sans-serif;
 	text-decoration: underline;
+	display: inline;
 }
 
 .sub-header{
@@ -482,6 +483,14 @@ header > nav > ul > li > a {
 	letter-spacing: 2px;
 	font-family: 'Karla', sans-serif;
 	text-decoration: underline;
+}
+
+.sub3-header{
+	font-size: 14px;
+	color: #111;
+	font-weight: 500;	
+	letter-spacing: 2px;
+	font-family: 'Karla', sans-serif;
 }
 
 /*footer*/
