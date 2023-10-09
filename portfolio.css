@@ -513,10 +513,10 @@ header > nav > ul > li > a {
   font-family: "Inconsolata", monospace;
 }
 
-.column {
-  width: 100;
-  background-color: #fff;
-  margin-top: 20px;
+.column{
+	width: 1000;
+	background-color: #fff;
+	margin-top: 20px;
 }
 
 .about-header {
