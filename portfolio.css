@@ -598,7 +598,7 @@ footer ul li a {
   display: inline-block;
   cursor: pointer;
   font-size: 16px;
-  color: #d80fad;
+  color: #cb10a2;
   letter-spacing: 2px;
   font-family: "Inconsolata", monospace;
 }
@@ -606,11 +606,11 @@ footer ul li a {
 /* The actual popup (appears on top) */
 .popup .popuptext {
   visibility: hidden;
-  width: 160px;
+  width: 600px;
   background-color: #555;
   text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
+  border-radius: 10px;
+
   position: absolute;
   z-index: 1;
   bottom: 125%;
@@ -624,7 +624,7 @@ footer ul li a {
   position: absolute;
   top: 100%;
   left: 50%;
-  margin-left: -5px;
+  margin-left: -230px;
   border-width: 5px;
   border-style: solid;
   border-color: #555 transparent transparent transparent;
