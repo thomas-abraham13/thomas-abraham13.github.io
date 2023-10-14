@@ -606,7 +606,7 @@ footer ul li a {
 /* The actual popup (appears on top) */
 .popup .popuptext {
   visibility: hidden;
-  width: 600px;
+  width: 750px; /* Width of the bottom dock */
   background-color: #555;
   text-align: center;
   border-radius: 10px;
@@ -624,7 +624,7 @@ footer ul li a {
   position: absolute;
   top: 100%;
   left: 50%;
-  margin-left: -230px;
+  margin-left: -300px;
   border-width: 5px;
   border-style: solid;
   border-color: #555 transparent transparent transparent;
