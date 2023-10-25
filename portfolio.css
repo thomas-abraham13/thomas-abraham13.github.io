@@ -259,6 +259,17 @@ header > nav > ul > li > a {
   background-size: cover;
   display: table;
 }
+
+.error-banner {
+  width: 100%;
+  height: calc(100vh - 100px);
+  background-image: url("https://media.giphy.com/media/14uQ3cOFteDaU/giphy.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: table;
+}
+
 #project-banner {
   width: 100%;
   height: calc(90vh - 100px);
@@ -310,7 +321,27 @@ header > nav > ul > li > a {
   line-height: 40px;
   font-style: italic;
   text-shadow: 1px 1px #111;
+  font-family: "Indie Flower", cursive;
+}
 
+.error-banner h2 {
+  font-size: 60px;
+  color: #fff;
+  text-align: center;
+  font-weight: 900;
+  line-height: 70px;
+  text-shadow: 2px 2px #111;
+  font-family: "Karla", sans-serif;
+}
+
+.error-banner h1 {
+  font-size: 28px;
+  color: #fff;
+  text-align: center;
+  font-weight: 900;
+  line-height: 40px;
+  font-style: italic;
+  text-shadow: 1px 1px #111;
   font-family: "Indie Flower", cursive;
 }
 
@@ -351,6 +382,10 @@ header > nav > ul > li > a {
     height: 525px;
   }
 
+  .error-banner {
+    height: 725px;
+  }
+
   #project-banner {
     height: 525px;
     /* background-image:url("https://data.whicdn.com/images/51034696/original.gif"); */
@@ -370,6 +405,12 @@ header > nav > ul > li > a {
   }
 
   .index-banner h1 {
+    display: block;
+    width: 560px;
+    margin: 0 auto;
+  }
+
+  .error-banner h1 {
     display: block;
     width: 560px;
     margin: 0 auto;
