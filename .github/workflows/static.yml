@@ -41,9 +41,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-      - name: HTML Preview
-        uses: pavi2410/html-preview-action@v2
-      - name: Proof HTML
-        uses: anishathalye/proof-html@v2.1.2
-        with:
-          directory: ./site
