@@ -75,6 +75,8 @@ video,
   font-size: 100%;
   vertical-align: baseline;
   background: transparent;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 body {
