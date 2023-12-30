@@ -689,4 +689,12 @@ footer ul li a {
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
-} 
+}
+
+.profile-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+  border-radius: 50%;
+}
