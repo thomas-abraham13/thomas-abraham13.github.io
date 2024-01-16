@@ -13,6 +13,8 @@
   gtag('config', 'G-V1XQHL8VF4');
 </script>
 
+<script type="text/javascript" src="function.js"></script>
+
   <title>Resume</title>
   <link rel="icon" type="x-icon" href="images/title-icon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,56 +96,83 @@
             <br>
         <div class="column">
         <h3 class="about-header">Work Experience<br><br></h3>
-        <p class="sub-header">FX Digital &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OCT 2022 - PRESENT</p>
-        <!-- <img src="images/fx_icon.png" width="50" height="50" alt="FX Digital Icon"> -->
-        <p class="sub2-header">London, United Kingdom</p>
-        <p class="sub3-header"><strong>Projects:</strong></p>
-        <p class="sub3-header">1. Tennis TV (ATP Media)</p>
-        <p class="sub3-header">
-          - Daily activites included deploying builds and executing multiple tests on CDTV devices (i.e. Apple TV, Samsung, LG, Xbox, AFTV and Android TV) of various years (2017-2023). <br>
-          - Automated scripts were also written in Gherkin to then be executed using an in house automation framework based on Puppeteer. Test cases could be executed directly on the device or on a browser and the results were uploaded to TestRail using a script.<br>
-        </p>
-        <p class="sub3-header"><br>2. itvX (CDTV)</p>
-        <p class="sub3-header">
-          - Assigned to various Back End teams as an internal QA with primary focus on the Video Player. <br>
-          - Regular tasks involved deploying builds and running multiple tests on CDTV and OTT devices (i.e. AFTV, Samsung, Freeview Play devices, Youview devices, etc.) of various years (2018-2023). <br>
+        <div class="tab">
+          <button class="tablinks" onclick="openCity(event, 'FX')"><img src="images/fx_icon.png" width="50" height="50" alt="FX Digital Icon"></button>
+          <button class="tablinks" onclick="openCity(event, 'Deloitte')"><img src="images/deloitte_icon.png" width="50" height="50" alt="Deloitte Icon"></button>
+        </div>
+        
+        <div id="FX" class="tabcontent">
+          <br>
+          <p class="sub-header">FX Digital &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OCT 2022 - PRESENT</p>
+          <p class="sub2-header">London, United Kingdom</p>
+          <p class="sub3-header"><strong>Projects:</strong></p>
+          <p class="sub3-header">1. Tennis TV (ATP Media)</p>
+          <p class="sub3-header">
+          - Daily activites included deploying builds and executing multiple tests on CDTV devices (i.e. Apple TV, Samsung, LG, Xbox, AFTV and Android TV) of various years (2017-2023). <br><br>
+          - Automated scripts were also written in Gherkin to then be executed using an in house automation framework based on Puppeteer. Test cases could be executed directly on the device or on a browser and the results were uploaded to TestRail using a script.<br><br>
+          </p>
+          <p class="sub3-header"><br>2. itvX (CDTV)</p>
+          <p class="sub3-header">
+          - Assigned to various Back End teams as an internal QA with primary focus on the Video Player. <br><br>
+          - Regular tasks involved deploying builds and running multiple tests on CDTV and OTT devices (i.e. AFTV, Samsung, Freeview Play devices, Youview devices, etc.) of various years (2018-2023). <br><br>
           - Multiple feature requests and internal changes were completed where a comprehensive knowledge of interrogation tools were required.
-        </p>
-        <br>
-        <p class="sub-header">Deloitte India (Offices of the United States) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AUG 2020 - AUG 2021</p>
-        <!-- <img src="images/deloitte_icon.png" width="50" height="50" alt="Deloitte Icon"> -->
-        <p class="sub2-header">Mumbai, Maharashtra, India</p>
-        <p class="sub3-header"><strong>Project:</strong> Government and Public Services</p>
-        <p class="sub3-header">
-          - Assigned to this project as a functional and operational software tester.<br>
-          - Daily activities included scripting of high-level scenarios, execution of test cases, API testing, logging defects and working with developers to better understand new change requests and increase client satisfaction.<br>
+          </p>
+          <br>
+        </div>
+        
+        <div id="Deloitte" class="tabcontent">
+          <br>
+          <p class="sub-header">Deloitte India (Offices of the United States) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AUG 2020 - AUG 2021</p>
+          <p class="sub2-header">Mumbai, Maharashtra, India</p>
+          <p class="sub3-header"><strong>Project:</strong> Government and Public Services</p>
+          <p class="sub3-header">
+          - Assigned to this project as a functional and operational software tester.<br><br>
+          - Daily activities included scripting of high-level scenarios, execution of test cases, API testing, logging defects and working with developers to better understand new change requests and increase client satisfaction.<br><br>
           - Deloitte certification course was undertaken for proficiency in Integrated Eligibility.
+          </p>
+          <br>
+        </div>
+
+
+
+
+      </div>
+      <div class="column">
+      <h3 class="about-header">Education<br><br></h3>
+      <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'QMUL')"><img src="images/qmul_icon.png" width="50" height="50" alt="QMUL Icon"></button>
+        <button class="tablinks" onclick="openCity(event, 'CU')"><img src="images/christ_icon.png" width="50" height="50" alt="CHRIST Icon"></button>
+      </div>
+      
+      <div id="QMUL" class="tabcontent">
+        <br>
+        <p class="sub-header">Queen Mary University of London (United Kingdom) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEPT 2021 - SEPT 2022</p>
+        <p class="sub2-header">Master of Computer Science</p>
+        <p class="sub3-header">
+        - <strong>Key Coursework:</strong> Functional Programming in Haskell, XSLT, XML, XQuery, Logic in Computer Science, Risk Analysis and Machine Learning.<br><br>
+        - Dissertation was submitted where machine learning algorithms was utilized to accurately predict the end result of an NBA season. Code & documentation can be found <a href="https://github.com/thomas-abraham13/MScDissertation" target="_blank">here</a>.
         </p>
         <br>
-     </div>
-     <div class="column">
-      <h3 class="about-header">Education<br><br></h3>
-      <p class="sub-header">Queen Mary University of London (United Kingdom) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEPT 2021 - SEPT 2022</p>
-      <!-- <img src="images/qmul_icon.png" width="50" height="50" alt="QMUL Icon"> -->
-      <p class="sub2-header">Master of Computer Science</p>
-      <p class="sub3-header">
-        - <strong>Key Coursework:</strong> Functional Programming in Haskell, XSLT, XML, XQuery, Logic in Computer Science, Risk Analysis and Machine Learning.<br>
-        - Dissertation was submitted where machine learning algorithms was utilized to accurately predict the end result of an NBA season. Code & documentation can be found <a href="https://github.com/thomas-abraham13/MScDissertation" target="_blank">here</a>.
-      </p>
-      <br>
-      <p class="sub-header">CHRIST University, Bangalore (India) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JUNE 2017 - JULY 2020</p>
-      <!-- <img src="images/christ_icon.png" width="50" height="50" alt="CHRIST Icon"> -->
-      <p class="sub2-header">Bachelor of Computer Application</p>
-      <p class="sub3-header">
-        - <strong>Key Coursework:</strong> C, C++, Java, Advanced Computational Algebra, Discrete Mathematics, Operating Systems, Data Structures and Algorithms, DBMS & Computer Networks.<br>
-        - In partial fulfillments of the course, a project was undertaken in which a mobile application was developed using Android Studio and Firebase. Code & documentation can be found <a href="https://github.com/thomas-abraham13/Inbound" target="_blank">here</a>.
-      </p>
-      <br>
+      </div>
+      
+      <div id="CU" class="tabcontent">
+        <br>
+        <p class="sub-header">CHRIST University, Bangalore (India) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JUNE 2017 - JULY 2020</p>
+        <p class="sub2-header">Bachelor of Computer Application</p>
+        <p class="sub3-header">
+          - <strong>Key Coursework:</strong> C, C++, Java, Advanced Computational Algebra, Discrete Mathematics, Operating Systems, Data Structures and Algorithms, DBMS & Computer Networks.<br><br>
+          - In partial fulfillments of the course, a project was undertaken in which a mobile application was developed using Android Studio and Firebase. Code & documentation can be found <a href="https://github.com/thomas-abraham13/Inbound" target="_blank">here</a>.
+        </p>
+        <br>
+      </div>
+      
+      <br><br><br>
+
+
    </div>
             <h3 class="about-header">Achievements<br><br></h3>
             <ul>
               <li>
-                <script type="text/javascript" src="function.js"></script>
                 <span class="summary">- Received a 
                   <div class="popup" onclick="pop()">scholarship<div class="popuptext" id="myPopup"><img src="images/scholarship.jpeg" width="750" height="500"/></div>
                   </div> for participation in the university basketball team at the undergraduate level.
