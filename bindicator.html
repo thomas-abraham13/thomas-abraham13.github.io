@@ -2,18 +2,17 @@
 <html>
 
 <head>
-
+	
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V1XQHL8VF4"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-V1XQHL8VF4');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V1XQHL8VF4');
 </script>
 
-	<title>Projects</title>
+	<title>Bindicator</title>
 	<link rel="icon" type="x-icon" href="images/title-icon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="portfolio.css?1422585377">
@@ -29,47 +28,31 @@
 		<a href="index.html" class="brand">Thomas Abraham</a>
 		<nav>
 			<ul>
-				<li><a href="projects.html" class="animated flash">Projects</a></li>
+				<li><a href="projects.html">Projects</a></li>
 				<li><a href="resume.html">Resume</a></li>
 				<li><a href="contact.html">Contact</a></li>
 			</ul>
 		</nav>
 	</header>
 	<main>
-		<section id="project-banner" class="index-banner">
-			<div class="vertical-center">
-				<h2 class="animated swing">Projects</h2>
+		<section class="project-photo">
+			<div class="wrapper">
+				<h2 class="animated rubberBand">Bindicator</h2>
+				<br>
+                <center><img src="images/bindicator.png" alt="Bindicator Slack Description"></center>
+				<article>
+					<h3><br>Automation Using Puppeteer</h3>
+					<div>
+						<p>Description: The main purpose of this project was to write a script using puppeteer which goes to a council website, enters the required information to obtain the bin collection dates and then sends me that information via Slack
+							<br><br>- The script navigates to the <a href="https://www.barnet.gov.uk/recycling-and-waste/bin-collections/find-your-bin-collection-day" target="_blank">Barnet council website</a> and enters the required information and then stores the bin collection dates in variables which are displayed on the console.
+                            <br>- Those variables are then saved as a .json and sent to slack via a POST method using a webhook.
+                            <br>- The process of receiving messages periodically was automated by creating a cron job.<br><br>
+						<p><strong>For Code 
+							<a href="https://github.com/thomas-abraham13/bindicator"  target="_blank"> <br>- Github </a>
+					</div>
+				</article>
 			</div>
 		</section>
-		<div class="wrapper">
-			<section class="index-links">
-				<a href="dissertation.html">
-					<div class="index-box-square animated fadeIn">
-						<h3>Predictive Modelling in the NBA</h3>
-					</div>
-				</a>
-				<a href="inbound.html">
-					<div class="index-box-square animated fadeIn">
-						<h3>Inbound</h3>
-					</div>
-				</a>
-				<a href="webScraper.html">
-					<div class="index-box-square animated fadeIn">
-						<h3>NBA Web Scraper</h3>
-					</div>
-				</a>
-				<a href="friendsEasterEggs.html">
-					<div class="index-box-square animated fadeIn">
-						<h3>Friends Easter Eggs</h3>
-					</div>
-				</a>
-				<a href="bindicator.html">
-					<div class="index-box-square animated fadeIn">
-						<h3>Bindicator</h3>
-					</div>
-				</a>
-			</section>
-		</div>
 	</main>
 	<div class="wrapper">
 		<footer class="footer-links-main">
