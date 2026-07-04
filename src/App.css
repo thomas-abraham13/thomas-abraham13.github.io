@@ -3,8 +3,9 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   flex-direction: row;
+  width: 100%;
 }
 
 .navbar-custom {
@@ -47,14 +48,19 @@
 }
 
 .MainApp {
-  margin-top: 8vh;
-  height: 90vh;
+  --app-top-gap: clamp(5.5rem, 7vw, 8rem);
+  --app-bottom-gap: clamp(3rem, 5vw, 5rem);
+  width: 100%;
+  min-height: 100vh;
+  padding-top: var(--app-top-gap);
+  padding-bottom: var(--app-bottom-gap);
+  box-sizing: border-box;
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: calc(100vh - var(--app-top-gap) - var(--app-bottom-gap));
 }
 
 .section-content-container {
@@ -63,6 +69,9 @@
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  padding-left: clamp(1.25rem, 3vw, 3rem);
+  padding-right: clamp(1.25rem, 3vw, 3rem);
 }
 
 .Typewriter {
