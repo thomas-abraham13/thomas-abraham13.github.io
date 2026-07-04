@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -19,7 +20,7 @@ module.exports = {
   ],
   rules: {
     'prefer-template': 0,
-    'react/no-children-prop': [0],
-    'linebreak-style': 0
+    'linebreak-style': 0,
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
   },
 };

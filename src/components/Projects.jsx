@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Container, Row, Button } from 'react-bootstrap';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
@@ -7,6 +7,7 @@ import Header from './Header';
 import endpoints from '../constants/endpoints';
 import ProjectCard from './projects/ProjectCard';
 import FallbackSpinner from './FallbackSpinner';
+import useProfileJson from '../hooks/useProfileJson';
 
 const styles = {
   containerStyle: {
@@ -20,18 +21,11 @@ const styles = {
 const Projects = (props) => {
   const theme = useContext(ThemeContext);
   const { header } = props;
-  const [data, setData] = useState(null);
+  const data = useProfileJson(endpoints.projects);
   const [showMore, setShowMore] = useState(false);
+  const projects = data?.projects || [];
 
-  useEffect(() => {
-    fetch(endpoints.projects, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
-  }, []);
-  const numberOfItems = showMore && data ? data.length : 6;
+  const numberOfItems = showMore ? projects.length : 6;
   return (
     <>
       <Header title={header} />
@@ -40,7 +34,7 @@ const Projects = (props) => {
           <div className="section-content-container">
             <Container style={styles.containerStyle}>
               <Row xs={1} sm={1} md={2} lg={3} className="g-4">
-                {data.projects?.slice(0, numberOfItems).map((project) => (
+                {projects.slice(0, numberOfItems).map((project) => (
                   <Fade key={project.title}>
                     <ProjectCard project={project} />
                   </Fade>

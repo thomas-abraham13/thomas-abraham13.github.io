@@ -10,10 +10,18 @@ import MainApp from './MainApp';
 import GlobalStyles from './theme/GlobalStyles';
 import { lightTheme, darkTheme } from './theme/themes';
 
+const GA_MEASUREMENT_ID = 'G-1GRG57RS6J';
+
 function App() {
-  ReactGA.initialize('G-1GRG57RS6J');
-  window.matchMedia = null;
-  const darkMode = useDarkMode(true);
+  React.useEffect(() => {
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.initialize(GA_MEASUREMENT_ID);
+    }
+  }, []);
+
+  const darkMode = useDarkMode(true, {
+    global: window,
+  });
 
   return (
     <AppContext.Provider value={{ darkMode }}>

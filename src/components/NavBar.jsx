@@ -1,10 +1,11 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import React, { useEffect, useState, useContext } from 'react';
-import { withRouter } from 'react-router';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import endpoints from '../constants/endpoints';
 import ThemeToggler from './ThemeToggler';
+import useProfileJson from '../hooks/useProfileJson';
+import { resolvePublicPath } from '../utils/data';
 
 const styles = {
   logoStyle: {
@@ -37,18 +38,8 @@ const InternalNavLink = styled(NavLink)`
 `;
 
 const NavBar = () => {
-  const theme = useContext(ThemeContext);
-  const [data, setData] = useState(null);
+  const data = useProfileJson(endpoints.navbar);
   const [expanded, setExpanded] = useState(false);
-
-  useEffect(() => {
-    fetch(endpoints.navbar, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
-  }, []);
 
   return (
     <Navbar
@@ -61,14 +52,18 @@ const NavBar = () => {
     >
       <Container>
         {data?.logo && (
-          <Navbar.Brand href="/">
+          <Navbar.Brand
+            as={NavLink}
+            to="/"
+            onClick={() => setExpanded(false)}
+          >
             <img
-              src={data?.logo?.source}
+              src={resolvePublicPath(data.logo.source)}
               className="d-inline-block align-top"
               alt="main logo"
               style={
-                data?.logo?.height && data?.logo?.width
-                  ? { height: data?.logo?.height, width: data?.logo?.width }
+                data.logo.height && data.logo.width
+                  ? { height: data.logo.height, width: data.logo.width }
                   : styles.logoStyle
               }
             />
@@ -90,7 +85,6 @@ const NavBar = () => {
                   rel="noopener noreferrer"
                   onClick={() => setExpanded(false)}
                   className="navbar__link"
-                  theme={theme}
                 >
                   {section.title}
                 </ExternalNavLink>
@@ -102,7 +96,6 @@ const NavBar = () => {
                   activeClassName="navbar__link--active"
                   className="navbar__link"
                   to={section.href}
-                  theme={theme}
                 >
                   {section.title}
                 </InternalNavLink>
@@ -117,5 +110,4 @@ const NavBar = () => {
   );
 };
 
-const NavBarWithRouter = withRouter(NavBar);
-export default NavBarWithRouter;
+export default NavBar;
