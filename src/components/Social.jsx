@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { SocialIcon } from 'react-social-icons';
 import { ThemeContext } from 'styled-components';
 import endpoints from '../constants/endpoints';
+import useProfileJson from '../hooks/useProfileJson';
 
 const styles = {
   iconStyle: {
@@ -13,16 +14,7 @@ const styles = {
 
 function Social() {
   const theme = useContext(ThemeContext);
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch(endpoints.social, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
-  }, []);
+  const data = useProfileJson(endpoints.social);
 
   return (
     <div className="social">
@@ -34,7 +26,7 @@ function Social() {
           network={social.network}
           bgColor={theme.socialIconBgColor}
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         />
       )) : null}
     </div>

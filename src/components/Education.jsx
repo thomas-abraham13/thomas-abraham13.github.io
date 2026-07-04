@@ -7,36 +7,54 @@ import { ThemeContext } from 'styled-components';
 import endpoints from '../constants/endpoints';
 import Header from './Header';
 import FallbackSpinner from './FallbackSpinner';
+import useProfileJson from '../hooks/useProfileJson';
+import { resolvePublicPath } from '../utils/data';
 import '../css/education.css';
+
+const getTimelineLayout = () => {
+  const viewportWidth = window.innerWidth;
+
+  if (viewportWidth < 768) {
+    return {
+      mode: 'VERTICAL',
+      width: '90vw',
+    };
+  }
+
+  if (viewportWidth < 1024) {
+    return {
+      mode: 'VERTICAL_ALTERNATING',
+      width: '75vw',
+    };
+  }
+
+  return {
+    mode: 'VERTICAL_ALTERNATING',
+    width: '50vw',
+  };
+};
 
 function Education(props) {
   const theme = useContext(ThemeContext);
   const { header } = props;
-  const [data, setData] = useState(null);
+  const data = useProfileJson(endpoints.education);
   const [width, setWidth] = useState('50vw');
   const [mode, setMode] = useState('VERTICAL_ALTERNATING');
 
   useEffect(() => {
-    fetch(endpoints.education, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
+    const updateLayout = () => {
+      const nextLayout = getTimelineLayout();
 
-    if (window?.innerWidth < 576) {
-      setMode('VERTICAL');
-    }
+      setMode(nextLayout.mode);
+      setWidth(nextLayout.width);
+    };
 
-    if (window?.innerWidth < 576) {
-      setWidth('90vw');
-    } else if (window?.innerWidth >= 576 && window?.innerWidth < 768) {
-      setWidth('90vw');
-    } else if (window?.innerWidth >= 768 && window?.innerWidth < 1024) {
-      setWidth('75vw');
-    } else {
-      setWidth('50vw');
-    }
+    updateLayout();
+    window.addEventListener('resize', updateLayout);
+
+    return () => {
+      window.removeEventListener('resize', updateLayout);
+    };
   }, []);
 
   return (
@@ -65,7 +83,7 @@ function Education(props) {
                   {data.education.map((education) => (education.icon ? (
                     <img
                       key={education.icon.src}
-                      src={education.icon.src}
+                      src={resolvePublicPath(education.icon.src)}
                       alt={education.icon.alt}
                     />
                   ) : null))}

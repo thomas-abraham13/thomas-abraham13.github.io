@@ -5,6 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import ReactMarkdown from 'react-markdown';
+import { resolvePublicPath } from '../../utils/data';
 
 const styles = {
   badgeStyle: {
@@ -35,7 +36,7 @@ const styles = {
 
 const ProjectCard = (props) => {
   const theme = useContext(ThemeContext);
-  const parseBodyText = (text) => <ReactMarkdown children={text} />;
+  const parseBodyText = (text) => <ReactMarkdown>{text}</ReactMarkdown>;
 
   const { project } = props;
 
@@ -49,7 +50,13 @@ const ProjectCard = (props) => {
         }}
         text={theme.bsSecondaryVariant}
       >
-        <Card.Img variant="top" src={project?.image} />
+        {project.image && (
+          <Card.Img
+            variant="top"
+            src={resolvePublicPath(project.image)}
+            alt={`${project.title} preview`}
+          />
+        )}
         <Card.Body>
           <Card.Title style={styles.cardTitleStyle}>{project.title}</Card.Title>
           <Card.Text style={styles.cardTextStyle}>
@@ -60,10 +67,13 @@ const ProjectCard = (props) => {
         <Card.Body>
           {project?.links?.map((link) => (
             <Button
+              as="a"
               key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
               style={styles.buttonStyle}
               variant={'outline-' + theme.bsSecondaryVariant}
-              onClick={() => window.open(link.href, '_blank')}
             >
               {link.text}
             </Button>

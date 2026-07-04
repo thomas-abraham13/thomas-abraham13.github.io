@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Container, Col, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
@@ -6,6 +6,8 @@ import Fade from 'react-reveal';
 import Header from './Header';
 import endpoints from '../constants/endpoints';
 import FallbackSpinner from './FallbackSpinner';
+import useProfileJson from '../hooks/useProfileJson';
+import { resolvePublicPath } from '../utils/data';
 
 const styles = {
   introTextContainer: {
@@ -26,22 +28,11 @@ const styles = {
 
 function About(props) {
   const { header } = props;
-  const [data, setData] = useState(null);
+  const data = useProfileJson(endpoints.about);
 
   const parseIntro = (text) => (
-    <ReactMarkdown
-      children={text}
-    />
+    <ReactMarkdown>{text}</ReactMarkdown>
   );
-
-  useEffect(() => {
-    fetch(endpoints.about, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
-  }, []);
 
   return (
     <>
@@ -56,7 +47,7 @@ function About(props) {
                     {parseIntro(data.about)}
                   </Col>
                   <Col style={styles.introImageContainer}>
-                    <img src={data?.imageSource} alt="profile" />
+                    <img src={resolvePublicPath(data.imageSource)} alt="profile" />
                   </Col>
                 </Row>
               </Fade>

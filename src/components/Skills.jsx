@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import PropTypes from 'prop-types';
 import Fade from 'react-reveal';
@@ -6,6 +6,8 @@ import { Container } from 'react-bootstrap';
 import Header from './Header';
 import endpoints from '../constants/endpoints';
 import FallbackSpinner from './FallbackSpinner';
+import useProfileJson from '../hooks/useProfileJson';
+import { resolvePublicPath } from '../utils/data';
 
 const styles = {
   iconStyle: {
@@ -21,22 +23,13 @@ const styles = {
 
 function Skills(props) {
   const { header } = props;
-  const [data, setData] = useState(null);
+  const data = useProfileJson(endpoints.skills);
 
   const renderSkillsIntro = (intro) => (
     <h4 style={styles.introTextContainer}>
-      <ReactMarkdown children={intro} />
+      <ReactMarkdown>{intro}</ReactMarkdown>
     </h4>
   );
-
-  useEffect(() => {
-    fetch(endpoints.skills, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
-  }, []);
 
   return (
     <>
@@ -54,7 +47,7 @@ function Skills(props) {
                     <div key={item.title} style={{ display: 'inline-block' }}>
                       <img
                         style={styles.iconStyle}
-                        src={item.icon}
+                        src={resolvePublicPath(item.icon)}
                         alt={item.title}
                       />
                       <p>{item.title}</p>
