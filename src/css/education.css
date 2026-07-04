@@ -6,10 +6,57 @@
     justify-content: center;
 }
 
+.education-timeline {
+    width: 100%;
+}
+
+.education-timeline .timeline-main-wrapper {
+    position: relative;
+}
+
+.education-timeline .timeline-main-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    transform: translateX(-50%);
+    background-color: var(--education-line-color);
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.education-timeline .vertical-item-row [data-testid='tree-leaf']::after {
+    display: none !important;
+}
+
+.education-timeline .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: none;
+    width: 100%;
+}
+
+.education-timeline .container > * {
+    width: 100%;
+}
+
+.education-timeline .vertical-item-row,
+.education-timeline .vertical-item-row > div {
+    position: relative;
+    z-index: 1;
+}
+
 .education-timeline .rc-title {
     color: var(--education-title-text) !important;
     font-weight: 700 !important;
     line-height: 1.35 !important;
+    white-space: nowrap !important;
+    width: max-content !important;
+    max-width: none !important;
     border-radius: 6px !important;
     padding: 0.25rem 0.35rem !important;
     transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease !important;
