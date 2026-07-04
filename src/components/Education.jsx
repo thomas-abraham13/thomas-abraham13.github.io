@@ -40,6 +40,15 @@ function Education(props) {
   const data = useProfileJson(endpoints.education);
   const [width, setWidth] = useState('50vw');
   const [mode, setMode] = useState('VERTICAL_ALTERNATING');
+  const timelineStyle = {
+    width,
+    '--education-card-bg': theme.chronoTheme.cardBgColor,
+    '--education-card-text': theme.chronoTheme.cardForeColor,
+    '--education-title-text': theme.chronoTheme.titleColor,
+    '--education-active-title-text': theme.chronoTheme.titleColorActive,
+    '--education-active-marker': theme.chronoTheme.markerColorActive,
+    '--education-active-marker-text': theme.chronoTheme.markerTextActive,
+  };
 
   useEffect(() => {
     const updateLayout = () => {
@@ -62,7 +71,7 @@ function Education(props) {
       <Header title={header} />
       {data ? (
         <Fade>
-          <div style={{ width }} className="section-content-container">
+          <div style={timelineStyle} className="section-content-container education-timeline">
             <Container>
               <Chrono
                 hideControls
@@ -72,11 +81,18 @@ function Education(props) {
                 cardHeight={250}
                 mode={mode}
                 theme={{
-                  primary: theme.accentColor,
-                  secondary: theme.accentColor,
+                  primary: theme.chronoTheme.markerColor,
+                  secondary: theme.chronoTheme.markerColorActive,
                   cardBgColor: theme.chronoTheme.cardBgColor,
                   cardForeColor: theme.chronoTheme.cardForeColor,
                   titleColor: theme.chronoTheme.titleColor,
+                  titleColorActive: theme.chronoTheme.titleColorActive,
+                }}
+                fontSizes={{
+                  title: '1rem',
+                  cardTitle: '1.25rem',
+                  cardSubtitle: '1rem',
+                  cardText: '0.95rem',
                 }}
               >
                 <div className="chrono-icons">

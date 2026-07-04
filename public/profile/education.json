@@ -17,15 +17,6 @@
             "icon" : {
                 "src": "images/education/christ_icon.png"
             }
-        },
-        {
-            "title": "June 2015 - March 2017",
-            "cardTitle": "Pre-University Education",
-            "cardSubtitle":"NHPU College, Bangalore",
-            "cardDetailedText": "",
-            "icon" : {
-                "src": "images/education/nhpu_icon.png"
-            }
         }
     ]
 }
