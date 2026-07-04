@@ -17,20 +17,20 @@ const getTimelineLayout = () => {
   if (viewportWidth < 768) {
     return {
       mode: 'VERTICAL',
-      width: '90vw',
+      width: '92vw',
     };
   }
 
   if (viewportWidth < 1024) {
     return {
       mode: 'VERTICAL_ALTERNATING',
-      width: '75vw',
+      width: '82vw',
     };
   }
 
   return {
     mode: 'VERTICAL_ALTERNATING',
-    width: '50vw',
+    width: '60vw',
   };
 };
 
@@ -38,14 +38,18 @@ function Education(props) {
   const theme = useContext(ThemeContext);
   const { header } = props;
   const data = useProfileJson(endpoints.education);
-  const [width, setWidth] = useState('50vw');
+  const [width, setWidth] = useState('60vw');
   const [mode, setMode] = useState('VERTICAL_ALTERNATING');
   const timelineStyle = {
     width,
+    margin: '0 auto',
+    display: 'flex',
+    justifyContent: 'center',
     '--education-card-bg': theme.chronoTheme.cardBgColor,
     '--education-card-text': theme.chronoTheme.cardForeColor,
     '--education-title-text': theme.chronoTheme.titleColor,
     '--education-active-title-text': theme.chronoTheme.titleColorActive,
+    '--education-line-color': theme.chronoTheme.markerColor,
     '--education-active-marker': theme.chronoTheme.markerColorActive,
     '--education-active-marker-text': theme.chronoTheme.markerTextActive,
   };
