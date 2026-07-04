@@ -24,6 +24,11 @@ const styles = {
     alignItems: 'center',
     display: 'flex',
   },
+  introImage: {
+    width: '100%',
+    maxWidth: 360,
+    borderRadius: 8,
+  },
 };
 
 function About(props) {
@@ -47,7 +52,11 @@ function About(props) {
                     {parseIntro(data.about)}
                   </Col>
                   <Col style={styles.introImageContainer}>
-                    <img src={resolvePublicPath(data.imageSource)} alt="profile" />
+                    <img
+                      src={resolvePublicPath(data.imageSource)}
+                      alt="profile"
+                      style={styles.introImage}
+                    />
                   </Col>
                 </Row>
               </Fade>
