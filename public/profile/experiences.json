@@ -1,27 +1,17 @@
 {
     "experiences": [
         {
-            "title": "Mid-weight QA Analyst",
+            "title": "QA Analyst",
             "subtitle": "FX Digital",
             "workType": "Full-time",
             "workDescription": [
-                "Project: itvX",
-                "Assigned to various Back End teams as an internal QA with primary focus on the Video Player.",
-                "Daily activites included deploying builds and executing multiple tests on CDTV devices (i.e. Apple TV, Samsung, LG, Xbox, AFTV and Android TV).",
-                "Multiple feature requests and internal changes were completed where a comprehensive knowledge of interrogation tools were required."
+                "Assigned to various project teams as an internal QA with a primary focus on the video player",
+                "Daily activites included deploying builds and executing multiple tests on Web, Mobile and CDTV devices",
+                "Automated scripts were written in Gherkin and executed using an in-house automation framework based on Puppeteer",
+                "Automation was also performed on BrowserStack (real devices) using WebdriverIO",
+                "Feature requests and internal changes were completed with a strong focus on test coverage, tooling, and collaboration"
             ],
-            "dateText": "02/2023 - Present"
-        },
-        {
-            "title": "Junior QA Analyst",
-            "subtitle": "FX Digital",
-            "workType": "Full-time",
-            "workDescription": [
-                "Project: Tennis TV (ATP Media)",
-                "Daily activites included deploying builds and executing multiple tests on CDTV devices (i.e. Apple TV, Samsung, LG, Xbox, AFTV and Android TV).",
-                "Automated scripts were also written in Gherkin to then be executed using an in house automation framework based on Puppeteer. Test cases could be executed directly on the device or on a browser"
-            ],
-            "dateText": "10/2022 - 01/2023"
+            "dateText": "10/2022 - Present"
         },
         {
             "title": "Associate Analyst (QA)",
@@ -29,9 +19,9 @@
             "workType": "Full-time",
             "workDescription": [
                 "Project: Government and Public Services",
-                "Assigned to this project as a functional and operational software tester.",
-                "Daily activities included scripting of high-level scenarios, execution of test cases, API testing, logging defects and working with developers to better understand new change requests.",
-                "Deloitte certification course was undertaken for proficiency in Integrated Eligibility."
+                "Assigned to this project as a functional and operational software tester",
+                "Daily activities included scripting of high-level scenarios, execution of test cases, API testing, logging defects and working with developers to better understand new change requests",
+                "Deloitte certification course was undertaken for proficiency in Integrated Eligibility"
             ],
             "dateText": "08/2021 - 08/2022"
         }
