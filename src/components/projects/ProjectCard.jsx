@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Button, Card, Badge, Col,
 } from 'react-bootstrap';
@@ -24,6 +24,9 @@ const styles = {
   },
   cardTextStyle: {
     textAlign: 'left',
+    lineHeight: 1.5,
+    overflow: 'hidden',
+    transition: 'max-height 0.2s ease',
   },
   linkStyle: {
     textDecoration: 'none',
@@ -37,8 +40,16 @@ const styles = {
 const ProjectCard = (props) => {
   const theme = useContext(ThemeContext);
   const parseBodyText = (text) => <ReactMarkdown>{text}</ReactMarkdown>;
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const { project } = props;
+  const shouldShowToggle = project.bodyText.replace(/\s+/g, ' ').trim().length > 160;
+  const bodyStyle = {
+    ...styles.cardTextStyle,
+    maxHeight: shouldShowToggle && !isExpanded ? '6.75rem' : 'none',
+    minHeight: shouldShowToggle ? '6.75rem' : 'auto',
+    overflow: shouldShowToggle && !isExpanded ? 'hidden' : 'visible',
+  };
 
   return (
     <Col>
@@ -59,9 +70,24 @@ const ProjectCard = (props) => {
         )}
         <Card.Body>
           <Card.Title style={styles.cardTitleStyle}>{project.title}</Card.Title>
-          <Card.Text style={styles.cardTextStyle}>
+          <Card.Text style={bodyStyle}>
             {parseBodyText(project.bodyText)}
           </Card.Text>
+          {shouldShowToggle && (
+            <Button
+              variant="link"
+              onClick={() => setIsExpanded((currentValue) => !currentValue)}
+              aria-expanded={isExpanded}
+              style={{
+                textDecoration: 'none',
+                paddingLeft: 0,
+                fontWeight: 600,
+                color: theme.accentColor,
+              }}
+            >
+              {isExpanded ? 'less..' : 'more..'}
+            </Button>
+          )}
         </Card.Body>
 
         <Card.Body>
