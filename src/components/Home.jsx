@@ -14,7 +14,6 @@ const styles = {
     display: 'inline-block',
   },
   mainContainer: {
-    height: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -27,7 +26,7 @@ function Home() {
 
   return data ? (
     <Fade>
-      <div style={styles.mainContainer}>
+      <div className="home-container" style={styles.mainContainer}>
         <h1 style={styles.nameStyle}>{data?.name}</h1>
         <div style={{ flexDirection: 'row' }}>
           <h2 style={styles.inlineChild}>I&apos;m&nbsp;</h2>

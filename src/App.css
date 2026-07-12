@@ -63,6 +63,10 @@
   min-height: calc(100vh - var(--app-top-gap) - var(--app-bottom-gap));
 }
 
+.home-container {
+  min-height: calc(100vh - var(--app-top-gap) - var(--app-bottom-gap));
+}
+
 .section-content-container {
   display: flex;
   flex-direction: column;
