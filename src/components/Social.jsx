@@ -3,6 +3,7 @@ import { SocialIcon } from 'react-social-icons';
 import { ThemeContext } from 'styled-components';
 import endpoints from '../constants/endpoints';
 import useProfileJson from '../hooks/useProfileJson';
+import { trackEvent } from '../utils/analytics';
 
 const styles = {
   iconStyle: {
@@ -27,6 +28,10 @@ function Social() {
           bgColor={theme.socialIconBgColor}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackEvent('social_click', {
+            social_network: social.network,
+            link_url: social.href,
+          })}
         />
       )) : null}
     </div>

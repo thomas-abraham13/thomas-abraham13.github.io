@@ -117,6 +117,45 @@ section.timeline-card-content div.card-description > p {
   margin-top: 60px;
 }
 
+.analytics-consent {
+  position: fixed;
+  z-index: 1100;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1rem;
+  color: #fff;
+  text-align: left;
+  background: #212529;
+  border: 1px solid #6c757d;
+  border-radius: .5rem;
+  box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .3);
+}
+
+.analytics-consent p {
+  margin: 0;
+}
+
+.analytics-consent__actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: .5rem;
+}
+
+.analytics-settings-button {
+  position: fixed;
+  z-index: 1090;
+  bottom: .75rem;
+  left: .75rem;
+  opacity: .85;
+}
+
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
 
@@ -131,6 +170,16 @@ section.timeline-card-content div.card-description > p {
 }
 
 @media (max-width: 768px) {
+
+  .analytics-consent {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .analytics-consent__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
   .navbar__link::after {
     background: none;
@@ -159,4 +208,3 @@ section.timeline-card-content div.card-description > p {
   font-weight: bold;
   margin-bottom: 25px;
 }
-

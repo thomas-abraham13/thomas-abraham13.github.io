@@ -6,12 +6,18 @@ import endpoints from '../constants/endpoints';
 import ThemeToggler from './ThemeToggler';
 import useProfileJson from '../hooks/useProfileJson';
 import { resolvePublicPath } from '../utils/data';
+import { trackEvent } from '../utils/analytics';
 
 const styles = {
   logoStyle: {
     width: 50,
     height: 40,
   },
+};
+
+const externalNavigationEvents = {
+  Resume: 'resume_click',
+  Documentation: 'documentation_click',
 };
 
 const ExternalNavLink = styled.a`
@@ -40,6 +46,17 @@ const InternalNavLink = styled(NavLink)`
 const NavBar = () => {
   const data = useProfileJson(endpoints.navbar);
   const [expanded, setExpanded] = useState(false);
+
+  const handleExternalLinkClick = (section) => {
+    trackEvent(
+      externalNavigationEvents[section.title] || 'external_navigation_click',
+      {
+        link_name: section.title,
+        link_url: section.href,
+      },
+    );
+    setExpanded(false);
+  };
 
   return (
     <Navbar
@@ -83,7 +100,7 @@ const NavBar = () => {
                   href={section.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => setExpanded(false)}
+                  onClick={() => handleExternalLinkClick(section)}
                   className="navbar__link"
                 >
                   {section.title}

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import { resolvePublicPath } from '../../utils/data';
+import { trackEvent } from '../../utils/analytics';
 
 const styles = {
   badgeStyle: {
@@ -98,6 +99,11 @@ const ProjectCard = (props) => {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent('project_link_click', {
+                project_title: project.title,
+                link_text: link.text,
+                link_url: link.href,
+              })}
               style={styles.buttonStyle}
               variant={'outline-' + theme.bsSecondaryVariant}
             >
