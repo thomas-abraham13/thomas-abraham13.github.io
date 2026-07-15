@@ -4,20 +4,33 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import useDarkMode from 'use-dark-mode';
-import ReactGA from 'react-ga4';
 import AppContext from './AppContext';
 import MainApp from './MainApp';
+import AnalyticsConsent from './components/AnalyticsConsent';
 import GlobalStyles from './theme/GlobalStyles';
 import { lightTheme, darkTheme } from './theme/themes';
-
-const GA_MEASUREMENT_ID = 'G-1GRG57RS6J';
+import {
+  disableAnalytics,
+  getAnalyticsConsent,
+  initializeAnalytics,
+  setAnalyticsConsent,
+} from './utils/analytics';
 
 function App() {
+  const [analyticsConsent, setConsent] = React.useState(getAnalyticsConsent);
+
   React.useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
-      ReactGA.initialize(GA_MEASUREMENT_ID);
+    if (analyticsConsent === 'granted') {
+      initializeAnalytics();
+    } else {
+      disableAnalytics();
     }
-  }, []);
+  }, [analyticsConsent]);
+
+  const handleAnalyticsConsent = (consent) => {
+    setAnalyticsConsent(consent);
+    setConsent(consent);
+  };
 
   const darkMode = useDarkMode(true, {
     global: window,
@@ -31,6 +44,10 @@ function App() {
           <BrowserRouter>
             <MainApp />
           </BrowserRouter>
+          <AnalyticsConsent
+            consent={analyticsConsent}
+            onChange={handleAnalyticsConsent}
+          />
         </div>
       </ThemeProvider>
     </AppContext.Provider>

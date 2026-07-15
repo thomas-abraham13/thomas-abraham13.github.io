@@ -2,12 +2,16 @@ import React, { useContext } from 'react';
 import DarkModeToggle from 'react-dark-mode-toggle';
 import PropTypes from 'prop-types';
 import AppContext from '../AppContext';
+import { trackEvent } from '../utils/analytics';
 
 function ThemeToggler(props) {
   const { onClick } = props;
   const { darkMode } = useContext(AppContext);
 
   const handleOnChange = () => {
+    trackEvent('theme_change', {
+      theme: darkMode.value ? 'light' : 'dark',
+    });
     darkMode.toggle();
     onClick();
   };
