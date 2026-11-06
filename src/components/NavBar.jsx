@@ -95,7 +95,7 @@ function NavBar() {
             {data.sections.map((section, index) => (section.type === 'link' ? (
               <ExternalNavLink
                 key={section.title}
-                href={section.href}
+                href={resolvePublicPath(section.href)}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleExternalLinkClick(section)}

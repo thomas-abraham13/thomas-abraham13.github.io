@@ -5,11 +5,11 @@
             "subtitle": "FX Digital",
             "workType": "Full-time",
             "workDescription": [
-                "Assigned to various project teams as an internal QA with a primary focus on the video player",
-                "Daily activites included deploying builds and executing multiple tests on Web, Mobile and CDTV devices",
-                "Automated scripts were written in Gherkin and executed using an in-house automation framework based on Puppeteer",
-                "Automation was also performed on BrowserStack (real devices) using WebdriverIO",
-                "Feature requests and internal changes were completed with a strong focus on test coverage, tooling, and collaboration"
+                "QA steer on the majority of internal projects, with a primary focus on the video player",
+                "Contracted out as QA to an external team working on ITVX",
+                "Deploy builds and execute tests across Web, Mobile and Connected TV devices",
+                "Write automated tests in Gherkin on an in-house Puppeteer framework, and automate real-device testing on BrowserStack with WebdriverIO",
+                "Deliver feature requests and internal changes with a strong focus on test coverage, tooling and collaboration"
             ],
             "dateText": "10/2022 - Present"
         },
@@ -18,12 +18,12 @@
             "subtitle": "Deloitte USI",
             "workType": "Full-time",
             "workDescription": [
-                "Project: Government and Public Services",
-                "Assigned to this project as a functional and operational software tester",
-                "Daily activities included scripting of high-level scenarios, execution of test cases, API testing, logging defects and working with developers to better understand new change requests",
-                "Deloitte certification course was undertaken for proficiency in Integrated Eligibility"
+                "Functional and operational QA tester on a Government and Public Services project",
+                "Scripted test scenarios, executed test cases and performed API testing with SoapUI",
+                "Logged defects and worked with developers to find root causes and understand change requests; shared findings with senior management to establish best practices",
+                "Completed Deloitte's certification course in Integrated Eligibility"
             ],
-            "dateText": "08/2021 - 08/2022"
+            "dateText": "08/2020 - 08/2021"
         }
     ]
 }
