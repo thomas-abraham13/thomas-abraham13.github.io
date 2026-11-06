@@ -1,10 +1,9 @@
+import { useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router';
 import styled from 'styled-components';
-import endpoints from '../constants/endpoints';
 import ThemeToggler from './ThemeToggler';
-import useProfileJson from '../hooks/useProfileJson';
+import data from '../profile/navbar.json';
 import { resolvePublicPath } from '../utils/data';
 import { trackEvent } from '../utils/analytics';
 
@@ -38,13 +37,12 @@ const InternalNavLink = styled(NavLink)`
   &::after {
     background-color: ${(props) => props.theme.accentColor};
   }
-  &.navbar__link--active {
+  &.active {
     color: ${(props) => props.theme.navbarTheme.linkActiveColor};
   }
 `;
 
-const NavBar = () => {
-  const data = useProfileJson(endpoints.navbar);
+function NavBar() {
   const [expanded, setExpanded] = useState(false);
 
   const handleExternalLinkClick = (section) => {
@@ -77,7 +75,7 @@ const NavBar = () => {
             <img
               src={resolvePublicPath(data.logo.source)}
               className="d-inline-block align-top"
-              alt="main logo"
+              alt="Thomas Abraham home"
               style={
                 data.logo.height && data.logo.width
                   ? { height: data.logo.height, width: data.logo.width }
@@ -88,35 +86,34 @@ const NavBar = () => {
         )}
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
+          aria-label="Toggle navigation"
           onClick={() => setExpanded(!expanded)}
         />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto" />
           <Nav>
-            {data
-              && data.sections?.map((section, index) => (section?.type === 'link' ? (
-                <ExternalNavLink
-                  key={section.title}
-                  href={section.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => handleExternalLinkClick(section)}
-                  className="navbar__link"
-                >
-                  {section.title}
-                </ExternalNavLink>
-              ) : (
-                <InternalNavLink
-                  key={section.title}
-                  onClick={() => setExpanded(false)}
-                  exact={index === 0}
-                  activeClassName="navbar__link--active"
-                  className="navbar__link"
-                  to={section.href}
-                >
-                  {section.title}
-                </InternalNavLink>
-              )))}
+            {data.sections.map((section, index) => (section.type === 'link' ? (
+              <ExternalNavLink
+                key={section.title}
+                href={section.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => handleExternalLinkClick(section)}
+                className="navbar__link"
+              >
+                {section.title}
+              </ExternalNavLink>
+            ) : (
+              <InternalNavLink
+                key={section.title}
+                onClick={() => setExpanded(false)}
+                end={index === 0}
+                className="navbar__link"
+                to={section.href}
+              >
+                {section.title}
+              </InternalNavLink>
+            )))}
           </Nav>
           <ThemeToggler
             onClick={() => setExpanded(false)}
@@ -125,6 +122,6 @@ const NavBar = () => {
       </Container>
     </Navbar>
   );
-};
+}
 
 export default NavBar;

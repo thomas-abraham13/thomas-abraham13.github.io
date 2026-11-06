@@ -1,20 +1,13 @@
-.vertical {
-    justify-content: center;
-}
-
-.vertical_alternating {
-    justify-content: center;
-}
-
 .education-timeline {
-    width: 100%;
-}
-
-.education-timeline .timeline-main-wrapper {
+    --education-marker-column: 4rem;
     position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 1rem 0;
+    list-style: none;
 }
 
-.education-timeline .timeline-main-wrapper::before {
+.education-timeline::before {
     content: '';
     position: absolute;
     top: 0;
@@ -24,88 +17,125 @@
     transform: translateX(-50%);
     background-color: var(--education-line-color);
     border-radius: 999px;
-    pointer-events: none;
-    z-index: 0;
 }
 
-.education-timeline .vertical-item-row [data-testid='tree-leaf']::after {
-    display: none !important;
+.education-item + .education-item {
+    margin-top: 2rem;
 }
 
-.education-timeline .container {
-    display: flex;
-    justify-content: center;
+.education-item__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--education-marker-column) minmax(0, 1fr);
+    grid-template-areas: 'card marker date';
     align-items: center;
-    max-width: none;
-    width: 100%;
 }
 
-.education-timeline .container > * {
-    width: 100%;
+.education-item:nth-child(even) .education-item__layout {
+    grid-template-areas: 'date marker card';
 }
 
-.education-timeline .vertical-item-row,
-.education-timeline .vertical-item-row > div {
+.education-item__card {
+    grid-area: card;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 15rem;
+    padding: 1.25rem;
+    color: var(--education-card-text);
+    text-align: left;
+    background-color: var(--education-card-bg);
+    border: 1px solid rgba(120, 130, 150, 0.25);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+.education-item__title {
+    margin: 0 0 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.education-item__subtitle {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.45;
+}
+
+.education-item__text {
+    margin: 0.6rem 0 0;
+    font-size: 0.95rem;
+}
+
+.education-item__marker {
+    grid-area: marker;
+    justify-self: center;
     position: relative;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    overflow: hidden;
+    background: #fff;
+    border: 3px solid var(--education-line-color);
+    border-radius: 50%;
 }
 
-.education-timeline .rc-title {
-    color: var(--education-title-text) !important;
-    font-weight: 700 !important;
-    line-height: 1.35 !important;
-    white-space: nowrap !important;
-    width: max-content !important;
-    max-width: none !important;
-    border-radius: 6px !important;
-    padding: 0.25rem 0.35rem !important;
-    transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease !important;
+.education-item__marker img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-.education-timeline .rc-title:hover,
-.education-timeline .rc-title:focus,
-.education-timeline .rc-title:focus-visible,
-.education-timeline .vertical-item-row:has(.rc-card:hover) .rc-title,
-.education-timeline .vertical-item-row:has(.rc-card:focus) .rc-title,
-.education-timeline .vertical-item-row:has(.rc-card:focus-visible) .rc-title,
-.education-timeline .vertical-item-row:has(.rc-card:focus-within) .rc-title {
-    background-color: var(--education-active-marker) !important;
-    color: var(--education-active-marker-text) !important;
-    box-shadow: 0 0 0 2px var(--education-active-marker) !important;
-    outline: none !important;
+.education-item__date {
+    grid-area: date;
+    justify-self: start;
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+    color: var(--education-title-text);
+    font-weight: 700;
+    line-height: 1.35;
+    border-radius: 6px;
+    transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.education-timeline .rc-card {
-    background-color: var(--education-card-bg) !important;
-    border: 1px solid rgba(120, 130, 150, 0.25) !important;
-    border-radius: 8px !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14) !important;
+.education-item:nth-child(even) .education-item__date {
+    justify-self: end;
 }
 
-.education-timeline .rc-card-title,
-.education-timeline .rc-card-subtitle,
-.education-timeline .rc-card-text {
-    color: var(--education-card-text) !important;
-    line-height: 1.45 !important;
+.education-item:hover .education-item__date,
+.education-item:focus-within .education-item__date {
+    color: var(--education-active-marker-text);
+    background-color: var(--education-active-marker);
 }
 
-.education-timeline .rc-card-title {
-    font-weight: 700 !important;
-    margin-bottom: 0.35rem !important;
-}
-
-.education-timeline .rc-card-subtitle {
-    font-weight: 500 !important;
-}
-
-@media only screen and (max-width: 578px) {
-    div.vertical-item-row > div:nth-child(1) {
-        width: 20% !important;
+@media only screen and (max-width: 767.98px) {
+    .education-timeline {
+        --education-marker-column: 3rem;
     }
-    div.vertical-item-row > div:nth-child(2) {
-        width: 65% !important;
+
+    .education-timeline::before {
+        left: calc(var(--education-marker-column) / 2);
     }
-    div.vertical-item-row > div:nth-child(3) {
-        width: 15% !important;
+
+    .education-item__layout,
+    .education-item:nth-child(even) .education-item__layout {
+        grid-template-columns: var(--education-marker-column) minmax(0, 1fr);
+        grid-template-areas:
+            'marker date'
+            '. card';
+        row-gap: 0.75rem;
+    }
+
+    .education-item__date,
+    .education-item:nth-child(even) .education-item__date {
+        justify-self: start;
+    }
+
+    .education-item__card {
+        min-height: 0;
     }
 }

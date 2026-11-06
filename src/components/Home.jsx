@@ -1,10 +1,7 @@
-import React from 'react';
 import Typewriter from 'typewriter-effect';
-import Fade from 'react-reveal';
-import endpoints from '../constants/endpoints';
+import Reveal from './Reveal';
 import Social from './Social';
-import FallbackSpinner from './FallbackSpinner';
-import useProfileJson from '../hooks/useProfileJson';
+import data from '../profile/home.json';
 
 const styles = {
   nameStyle: {
@@ -22,26 +19,24 @@ const styles = {
 };
 
 function Home() {
-  const data = useProfileJson(endpoints.home);
-
-  return data ? (
-    <Fade>
+  return (
+    <Reveal>
       <div className="home-container" style={styles.mainContainer}>
-        <h1 style={styles.nameStyle}>{data?.name}</h1>
-        <div style={{ flexDirection: 'row' }}>
+        <h1 style={styles.nameStyle}>{data.name}</h1>
+        <div>
           <h2 style={styles.inlineChild}>I&apos;m&nbsp;</h2>
           <Typewriter
             options={{
               loop: true,
               autoStart: true,
-              strings: data?.roles,
+              strings: data.roles,
             }}
           />
         </div>
         <Social />
       </div>
-    </Fade>
-  ) : <FallbackSpinner />;
+    </Reveal>
+  );
 }
 
 export default Home;

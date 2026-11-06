@@ -1,118 +1,58 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { Chrono } from 'react-chrono';
+import { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import Fade from 'react-reveal';
 import { ThemeContext } from 'styled-components';
-import endpoints from '../constants/endpoints';
 import Header from './Header';
-import FallbackSpinner from './FallbackSpinner';
-import useProfileJson from '../hooks/useProfileJson';
+import Reveal from './Reveal';
+import data from '../profile/education.json';
 import { resolvePublicPath } from '../utils/data';
 import '../css/education.css';
 
-const getTimelineLayout = () => {
-  const viewportWidth = window.innerWidth;
-
-  if (viewportWidth < 768) {
-    return {
-      mode: 'VERTICAL',
-      width: '92vw',
-    };
-  }
-
-  if (viewportWidth < 1024) {
-    return {
-      mode: 'VERTICAL_ALTERNATING',
-      width: '82vw',
-    };
-  }
-
-  return {
-    mode: 'VERTICAL_ALTERNATING',
-    width: '60vw',
-  };
-};
-
-function Education(props) {
+function Education({ header }) {
   const theme = useContext(ThemeContext);
-  const { header } = props;
-  const data = useProfileJson(endpoints.education);
-  const [width, setWidth] = useState('60vw');
-  const [mode, setMode] = useState('VERTICAL_ALTERNATING');
   const timelineStyle = {
-    width,
-    margin: '0 auto',
-    display: 'flex',
-    justifyContent: 'center',
-    '--education-card-bg': theme.chronoTheme.cardBgColor,
-    '--education-card-text': theme.chronoTheme.cardForeColor,
-    '--education-title-text': theme.chronoTheme.titleColor,
-    '--education-active-title-text': theme.chronoTheme.titleColorActive,
-    '--education-line-color': theme.chronoTheme.markerColor,
-    '--education-active-marker': theme.chronoTheme.markerColorActive,
-    '--education-active-marker-text': theme.chronoTheme.markerTextActive,
+    '--education-card-bg': theme.educationTheme.cardBgColor,
+    '--education-card-text': theme.educationTheme.cardForeColor,
+    '--education-title-text': theme.educationTheme.titleColor,
+    '--education-line-color': theme.educationTheme.markerColor,
+    '--education-active-marker': theme.educationTheme.markerColorActive,
+    '--education-active-marker-text': theme.educationTheme.markerTextActive,
+    '--education-page-bg': theme.background,
   };
-
-  useEffect(() => {
-    const updateLayout = () => {
-      const nextLayout = getTimelineLayout();
-
-      setMode(nextLayout.mode);
-      setWidth(nextLayout.width);
-    };
-
-    updateLayout();
-    window.addEventListener('resize', updateLayout);
-
-    return () => {
-      window.removeEventListener('resize', updateLayout);
-    };
-  }, []);
 
   return (
     <>
       <Header title={header} />
-      {data ? (
-        <Fade>
-          <div style={timelineStyle} className="section-content-container education-timeline">
-            <Container>
-              <Chrono
-                hideControls
-                allowDynamicUpdate
-                useReadMore={false}
-                items={data.education}
-                cardHeight={250}
-                mode={mode}
-                theme={{
-                  primary: theme.chronoTheme.markerColor,
-                  secondary: theme.chronoTheme.markerColorActive,
-                  cardBgColor: theme.chronoTheme.cardBgColor,
-                  cardForeColor: theme.chronoTheme.cardForeColor,
-                  titleColor: theme.chronoTheme.titleColor,
-                  titleColorActive: theme.chronoTheme.titleColorActive,
-                }}
-                fontSizes={{
-                  title: '1rem',
-                  cardTitle: '1.25rem',
-                  cardSubtitle: '1rem',
-                  cardText: '0.95rem',
-                }}
-              >
-                <div className="chrono-icons">
-                  {data.education.map((education) => (education.icon ? (
-                    <img
-                      key={education.icon.src}
-                      src={resolvePublicPath(education.icon.src)}
-                      alt={education.icon.alt}
-                    />
-                  ) : null))}
-                </div>
-              </Chrono>
-            </Container>
-          </div>
-        </Fade>
-      ) : <FallbackSpinner /> }
+      <div className="section-content-container">
+        <Container>
+          <ol className="education-timeline" style={timelineStyle}>
+            {data.education.map((education) => (
+              <li key={education.title} className="education-item">
+                <Reveal className="education-item__layout">
+                  <div className="education-item__card">
+                    <h2 className="education-item__title">{education.cardTitle}</h2>
+                    <p className="education-item__subtitle">{education.cardSubtitle}</p>
+                    {education.cardDetailedText && (
+                      <p className="education-item__text">{education.cardDetailedText}</p>
+                    )}
+                  </div>
+                  <span className="education-item__marker">
+                    {education.icon && (
+                      <img
+                        src={resolvePublicPath(education.icon.src)}
+                        alt={`${education.cardSubtitle} logo`}
+                        width={28}
+                        height={28}
+                      />
+                    )}
+                  </span>
+                  <p className="education-item__date">{education.title}</p>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </div>
     </>
   );
 }

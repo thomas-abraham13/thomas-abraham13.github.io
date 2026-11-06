@@ -1,12 +1,12 @@
-import React from 'react';
-import './App.css';
+import { useEffect, useMemo, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter } from 'react-router-dom';
+import './App.css';
+import { BrowserRouter } from 'react-router';
 import { ThemeProvider } from 'styled-components';
-import useDarkMode from 'use-dark-mode';
 import AppContext from './AppContext';
 import MainApp from './MainApp';
 import AnalyticsConsent from './components/AnalyticsConsent';
+import useDarkMode from './hooks/useDarkMode';
 import GlobalStyles from './theme/GlobalStyles';
 import { lightTheme, darkTheme } from './theme/themes';
 import {
@@ -17,9 +17,11 @@ import {
 } from './utils/analytics';
 
 function App() {
-  const [analyticsConsent, setConsent] = React.useState(getAnalyticsConsent);
+  const [analyticsConsent, setConsent] = useState(getAnalyticsConsent);
+  const darkMode = useDarkMode(true);
+  const appContextValue = useMemo(() => ({ darkMode }), [darkMode]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (analyticsConsent === 'granted') {
       initializeAnalytics();
     } else {
@@ -32,12 +34,8 @@ function App() {
     setConsent(consent);
   };
 
-  const darkMode = useDarkMode(true, {
-    global: window,
-  });
-
   return (
-    <AppContext.Provider value={{ darkMode }}>
+    <AppContext.Provider value={appContextValue}>
       <ThemeProvider theme={darkMode.value ? darkTheme : lightTheme}>
         <GlobalStyles />
         <div className="App">

@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import {
   Button, Card, Badge, Col,
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'react-markdown';
 import { resolvePublicPath } from '../../utils/data';
 import { trackEvent } from '../../utils/analytics';
 
@@ -38,12 +38,10 @@ const styles = {
   },
 };
 
-const ProjectCard = (props) => {
+function ProjectCard({ project }) {
   const theme = useContext(ThemeContext);
-  const parseBodyText = (text) => <ReactMarkdown>{text}</ReactMarkdown>;
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const { project } = props;
   const shouldShowToggle = project.bodyText.replace(/\s+/g, ' ').trim().length > 160;
   const bodyStyle = {
     ...styles.cardTextStyle,
@@ -67,12 +65,13 @@ const ProjectCard = (props) => {
             variant="top"
             src={resolvePublicPath(project.image)}
             alt={`${project.title} preview`}
+            loading="lazy"
           />
         )}
         <Card.Body>
           <Card.Title style={styles.cardTitleStyle}>{project.title}</Card.Title>
           <Card.Text style={bodyStyle}>
-            {parseBodyText(project.bodyText)}
+            <Markdown>{project.bodyText}</Markdown>
           </Card.Text>
           {shouldShowToggle && (
             <Button
@@ -129,7 +128,7 @@ const ProjectCard = (props) => {
       </Card>
     </Col>
   );
-};
+}
 
 ProjectCard.propTypes = {
   project: PropTypes.shape({

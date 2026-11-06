@@ -1,0 +1,77 @@
+{
+    "intro": "These are some of the major languages, technologies, tools and platforms I have experience with:",
+    "skills": [{
+        "title": "Languages",
+        "items" : [
+            {
+                "icon":"images/skills/html.webp",
+                "title": "HTML"
+            },
+            {
+                "icon":"images/skills/css.webp",
+                "title": "CSS"
+            },
+            {
+                "icon": "images/skills/js.webp",
+                "title": "JavaScript"
+            },
+            {
+                "icon": "images/skills/typescript.webp",
+                "title": "TypeScript"
+            },
+            {
+                "icon": "images/skills/python.webp",
+                "title": "Python"
+            },
+            {
+                "icon": "images/skills/mysql.webp",
+                "title": "SQL"
+            }
+        ]},
+        {
+            "title": "Frameworks",
+            "items" : [
+                {
+                    "icon": "images/skills/puppeteer.webp",
+                    "title": "Puppeteer"
+                },
+                {
+                    "icon": "images/skills/playwright.webp",
+                    "title": "Playwright"
+                },
+                {
+                    "icon": "images/skills/selenium.webp",
+                    "title": "Selenium"
+                },
+                {
+                    "icon": "images/skills/appium.webp",
+                    "title": "Appium"
+                }
+            ]
+        },
+        {
+            "title" : "Tools",
+            "items": [
+                {
+                    "icon": "images/skills/git.webp",
+                    "title": "Git"
+                },
+                {
+                    "icon": "images/skills/charles_proxy.webp",
+                    "title": "Charles Proxy"
+                },
+                {
+                    "icon": "images/skills/postman.webp",
+                    "title": "Postman"
+                },
+                {
+                    "icon": "images/skills/soapui.webp",
+                    "title": "Soap UI"
+                },
+                {
+                    "icon": "images/skills/jira.webp",
+                    "title": "Jira"
+                }
+            ]
+    }
+]}

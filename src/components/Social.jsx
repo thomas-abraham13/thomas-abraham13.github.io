@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { SocialIcon } from 'react-social-icons';
 import { ThemeContext } from 'styled-components';
-import endpoints from '../constants/endpoints';
-import useProfileJson from '../hooks/useProfileJson';
+import data from '../profile/social.json';
 import { trackEvent } from '../utils/analytics';
 
 const styles = {
@@ -15,17 +14,17 @@ const styles = {
 
 function Social() {
   const theme = useContext(ThemeContext);
-  const data = useProfileJson(endpoints.social);
 
   return (
     <div className="social">
-      {data ? data.social.map((social) => (
+      {data.social.map((social) => (
         <SocialIcon
           key={social.network}
           style={styles.iconStyle}
           url={social.href}
           network={social.network}
           bgColor={theme.socialIconBgColor}
+          fgColor={theme.background}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackEvent('social_click', {
@@ -33,7 +32,7 @@ function Social() {
             link_url: social.href,
           })}
         />
-      )) : null}
+      ))}
     </div>
   );
 }

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-function AnalyticsConsent({ consent, onChange }) {
+function AnalyticsConsent({ consent = null, onChange }) {
   const [isOpen, setIsOpen] = useState(consent === null);
 
   const handleChoice = (choice) => {
@@ -49,10 +49,6 @@ function AnalyticsConsent({ consent, onChange }) {
 AnalyticsConsent.propTypes = {
   consent: PropTypes.oneOf(['granted', 'denied']),
   onChange: PropTypes.func.isRequired,
-};
-
-AnalyticsConsent.defaultProps = {
-  consent: null,
 };
 
 export default AnalyticsConsent;

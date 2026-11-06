@@ -2,13 +2,13 @@ import ReactGA from 'react-ga4';
 
 export const ANALYTICS_CONSENT_KEY = 'portfolio-analytics-consent';
 
-const GA_MEASUREMENT_ID = process.env.REACT_APP_GA_MEASUREMENT_ID;
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
 let analyticsInitialized = false;
 let analyticsEnabled = false;
 
 const canUseAnalytics = () => (
-  process.env.NODE_ENV === 'production' && Boolean(GA_MEASUREMENT_ID)
+  import.meta.env.PROD && Boolean(GA_MEASUREMENT_ID)
 );
 
 const googleConsentSettings = (analyticsStorage) => ({

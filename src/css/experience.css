@@ -1,9 +1,108 @@
-.entry .body{
-    margin: 0 0 1em;
+.experience-timeline {
+    --experience-date-column: 15rem;
+    --experience-marker-column: 3.5rem;
+    position: relative;
+    max-width: 52rem;
+    margin: 0 auto;
+    padding: 1rem 0;
+    list-style: none;
+    text-align: left;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--experience-date-column) + var(--experience-marker-column) / 2 - 2px);
+    width: 4px;
+    background: var(--experience-line);
+}
+
+.experience-item + .experience-item {
+    margin-top: 1rem;
+}
+
+.experience-item__layout {
+    display: grid;
+    grid-template-columns: var(--experience-date-column) var(--experience-marker-column) minmax(0, 1fr);
+    grid-template-areas: 'date marker body';
+    align-items: start;
+}
+
+.experience-item__date {
+    grid-area: date;
+    justify-self: stretch;
+    margin: 0.75rem 0 0;
+    padding: 0.85rem 2rem 0.85rem 1rem;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    background: var(--experience-accent);
+    clip-path: polygon(0 0, calc(100% - 0.75rem) 0, 100% 50%, calc(100% - 0.75rem) 100%, 0 100%);
+}
+
+.experience-item__marker {
+    grid-area: marker;
+    justify-self: center;
+    position: relative;
+    z-index: 1;
+    width: 14px;
+    height: 14px;
+    margin-top: 1.75rem;
+    border: 3px solid var(--experience-line);
+    border-radius: 50%;
+    background: var(--experience-background);
+}
+
+.experience-item__body {
+    grid-area: body;
+    padding-bottom: 1rem;
+}
+
+.experience-item__body .item-title {
+    margin: 0.75rem 0 0;
+    font-size: 2rem;
+}
+
+.experience-item__subtitle {
+    margin: 0.6rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.experience-item__company {
+    color: var(--experience-accent);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.experience-item__points {
+    padding-left: 20px;
+    list-style: disc outside;
 }
 
 @media only screen and (max-width: 768px) {
-    .item-title {
-        margin-top: 10px !important;
+    .experience-timeline {
+        --experience-marker-column: 2.5rem;
+    }
+
+    .experience-timeline::before {
+        left: calc(var(--experience-marker-column) / 2 - 2px);
+    }
+
+    .experience-item__layout {
+        grid-template-columns: var(--experience-marker-column) minmax(0, 1fr);
+        grid-template-areas:
+            'marker date'
+            '. body';
+    }
+
+    .experience-item__date {
+        justify-self: start;
+    }
+
+    .experience-item__body .item-title {
+        font-size: 1.6rem;
     }
 }

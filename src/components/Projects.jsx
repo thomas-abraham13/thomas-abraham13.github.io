@@ -1,13 +1,13 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { Container, Row, Button } from 'react-bootstrap';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
-import Fade from 'react-reveal/Fade';
 import Header from './Header';
-import endpoints from '../constants/endpoints';
+import Reveal from './Reveal';
 import ProjectCard from './projects/ProjectCard';
-import FallbackSpinner from './FallbackSpinner';
-import useProfileJson from '../hooks/useProfileJson';
+import data from '../profile/projects.json';
+
+const INITIAL_PROJECT_COUNT = 6;
 
 const styles = {
   containerStyle: {
@@ -18,45 +18,40 @@ const styles = {
   },
 };
 
-const Projects = (props) => {
+function Projects({ header }) {
   const theme = useContext(ThemeContext);
-  const { header } = props;
-  const data = useProfileJson(endpoints.projects);
   const [showMore, setShowMore] = useState(false);
-  const projects = data?.projects || [];
+  const { projects } = data;
+  const hasHiddenProjects = !showMore && projects.length > INITIAL_PROJECT_COUNT;
+  const visibleProjects = showMore ? projects : projects.slice(0, INITIAL_PROJECT_COUNT);
 
-  const numberOfItems = showMore ? projects.length : 6;
   return (
     <>
       <Header title={header} />
-      {data
-        ? (
-          <div className="section-content-container">
-            <Container style={styles.containerStyle}>
-              <Row xs={1} sm={1} md={2} lg={3} className="g-4">
-                {projects.slice(0, numberOfItems).map((project) => (
-                  <Fade key={project.title}>
-                    <ProjectCard project={project} />
-                  </Fade>
-                ))}
-              </Row>
+      <div className="section-content-container">
+        <Container style={styles.containerStyle}>
+          <Row xs={1} sm={1} md={2} lg={3} className="g-4">
+            {visibleProjects.map((project) => (
+              <Reveal key={project.title}>
+                <ProjectCard project={project} />
+              </Reveal>
+            ))}
+          </Row>
 
-              {!showMore
-                && (
-                <Button
-                  style={styles.showMoreStyle}
-                  variant={theme.bsSecondaryVariant}
-                  onClick={() => setShowMore(true)}
-                >
-                  show more
-                </Button>
-                )}
-            </Container>
-          </div>
-        ) : <FallbackSpinner /> }
+          {hasHiddenProjects && (
+            <Button
+              style={styles.showMoreStyle}
+              variant={theme.bsSecondaryVariant}
+              onClick={() => setShowMore(true)}
+            >
+              show more
+            </Button>
+          )}
+        </Container>
+      </div>
     </>
   );
-};
+}
 
 Projects.propTypes = {
   header: PropTypes.string.isRequired,

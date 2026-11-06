@@ -2,7 +2,7 @@ export const lightTheme = {
   background: '#fff',
   color: '#121212',
   accentColor: '#3D84C6',
-  chronoTheme: {
+  educationTheme: {
     cardBgColor: '#ffffff',
     cardForeColor: '#18212f',
     titleColor: '#334155',
@@ -29,7 +29,7 @@ export const darkTheme = {
   background: '#121212',
   color: '#eee',
   accentColor: '#3D84C6',
-  chronoTheme: {
+  educationTheme: {
     cardBgColor: '#20242c',
     cardForeColor: '#f5f7fb',
     titleColor: '#d7deea',

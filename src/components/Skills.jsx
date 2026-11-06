@@ -1,64 +1,59 @@
-import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'react-markdown';
 import PropTypes from 'prop-types';
-import Fade from 'react-reveal';
 import { Container } from 'react-bootstrap';
 import Header from './Header';
-import endpoints from '../constants/endpoints';
-import FallbackSpinner from './FallbackSpinner';
-import useProfileJson from '../hooks/useProfileJson';
+import Reveal from './Reveal';
+import data from '../profile/skills.json';
 import { resolvePublicPath } from '../utils/data';
 
 const styles = {
   iconStyle: {
     height: 75,
     width: 75,
+    objectFit: 'contain',
     margin: 10,
     marginBottom: 0,
   },
   introTextContainer: {
     whiteSpace: 'pre-wrap',
   },
+  skillItem: {
+    display: 'inline-block',
+  },
 };
 
-function Skills(props) {
-  const { header } = props;
-  const data = useProfileJson(endpoints.skills);
-
-  const renderSkillsIntro = (intro) => (
-    <h4 style={styles.introTextContainer}>
-      <ReactMarkdown>{intro}</ReactMarkdown>
-    </h4>
-  );
-
+function Skills({ header }) {
   return (
     <>
       <Header title={header} />
-      {data ? (
-        <Fade>
-          <div className="section-content-container">
-            <Container>
-              {renderSkillsIntro(data.intro)}
-              {data.skills?.map((rows) => (
-                <div key={rows.title}>
-                  <br />
-                  <h3>{rows.title}</h3>
-                  {rows.items.map((item) => (
-                    <div key={item.title} style={{ display: 'inline-block' }}>
-                      <img
-                        style={styles.iconStyle}
-                        src={resolvePublicPath(item.icon)}
-                        alt={item.title}
-                      />
-                      <p>{item.title}</p>
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </Container>
-          </div>
-        </Fade>
-      ) : <FallbackSpinner /> }
+      <Reveal>
+        <div className="section-content-container">
+          <Container>
+            <h2 className="h4" style={styles.introTextContainer}>
+              <Markdown components={{ p: 'span' }}>{data.intro}</Markdown>
+            </h2>
+            {data.skills.map((group) => (
+              <div key={group.title}>
+                <br />
+                <h3>{group.title}</h3>
+                {group.items.map((item) => (
+                  <div key={item.title} style={styles.skillItem}>
+                    <img
+                      style={styles.iconStyle}
+                      src={resolvePublicPath(item.icon)}
+                      alt=""
+                      width={75}
+                      height={75}
+                      loading="lazy"
+                    />
+                    <p>{item.title}</p>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </Container>
+        </div>
+      </Reveal>
     </>
   );
 }

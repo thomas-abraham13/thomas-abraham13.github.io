@@ -3,13 +3,20 @@
   "name": "Thomas Abraham - Portfolio",
   "icons": [
     {
-      "src": "images/logo.png",
+      "src": "/images/icon-192.png",
       "type": "image/png",
-      "sizes": "425x225"
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#212529",
+  "background_color": "#121212"
 }

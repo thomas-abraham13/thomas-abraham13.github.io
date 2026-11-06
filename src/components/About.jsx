@@ -1,12 +1,9 @@
-import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'react-markdown';
 import { Container, Col, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import Fade from 'react-reveal';
 import Header from './Header';
-import endpoints from '../constants/endpoints';
-import FallbackSpinner from './FallbackSpinner';
-import useProfileJson from '../hooks/useProfileJson';
+import Reveal from './Reveal';
+import data from '../profile/about.json';
 import { resolvePublicPath } from '../utils/data';
 
 const styles = {
@@ -27,41 +24,33 @@ const styles = {
   introImage: {
     width: '100%',
     maxWidth: 360,
+    height: 'auto',
     borderRadius: 8,
   },
 };
 
-function About(props) {
-  const { header } = props;
-  const data = useProfileJson(endpoints.about);
-
-  const parseIntro = (text) => (
-    <ReactMarkdown>{text}</ReactMarkdown>
-  );
-
+function About({ header }) {
   return (
     <>
       <Header title={header} />
       <div className="section-content-container">
         <Container>
-          {data
-            ? (
-              <Fade>
-                <Row>
-                  <Col style={styles.introTextContainer}>
-                    {parseIntro(data.about)}
-                  </Col>
-                  <Col style={styles.introImageContainer}>
-                    <img
-                      src={resolvePublicPath(data.imageSource)}
-                      alt="profile"
-                      style={styles.introImage}
-                    />
-                  </Col>
-                </Row>
-              </Fade>
-            )
-            : <FallbackSpinner />}
+          <Reveal>
+            <Row>
+              <Col style={styles.introTextContainer}>
+                <Markdown>{data.about}</Markdown>
+              </Col>
+              <Col style={styles.introImageContainer}>
+                <img
+                  src={resolvePublicPath(data.imageSource)}
+                  alt={data.imageAlt}
+                  width={605}
+                  height={703}
+                  style={styles.introImage}
+                />
+              </Col>
+            </Row>
+          </Reveal>
         </Container>
       </div>
     </>

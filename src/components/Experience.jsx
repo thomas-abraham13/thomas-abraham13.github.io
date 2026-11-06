@@ -1,96 +1,59 @@
-import React, { useContext } from 'react';
-import { Timeline, TimelineItem } from 'vertical-timeline-component-for-react';
+import { useContext } from 'react';
 import { Container } from 'react-bootstrap';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'react-markdown';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import Fade from 'react-reveal';
 import Header from './Header';
-import endpoints from '../constants/endpoints';
-import FallbackSpinner from './FallbackSpinner';
-import useProfileJson from '../hooks/useProfileJson';
+import Reveal from './Reveal';
+import data from '../profile/experiences.json';
 import '../css/experience.css';
 
-const styles = {
-  ulStyle: {
-    listStylePosition: 'outside',
-    paddingLeft: 20,
-  },
-  subtitleContainerStyle: {
-    marginTop: 10,
-    marginBottom: 10,
-  },
-  subtitleStyle: {
-    display: 'inline-block',
-  },
-  inlineChild: {
-    display: 'inline-block',
-  },
-  itemStyle: {
-    marginBottom: 10,
-  },
-};
-
-function Experience(props) {
+function Experience({ header }) {
   const theme = useContext(ThemeContext);
-  const { header } = props;
-  const profileData = useProfileJson(endpoints.experiences);
-  const data = profileData?.experiences;
+  const timelineStyle = {
+    '--experience-accent': theme.accentColor,
+    '--experience-line': theme.timelineLineColor,
+    '--experience-background': theme.background,
+  };
 
   return (
     <>
       <Header title={header} />
-
-      {data
-        ? (
-          <div className="section-content-container">
-            <Container>
-              <Timeline
-                lineColor={theme.timelineLineColor}
-              >
-                {data.map((item) => (
-                  <Fade key={item.title + item.dateText}>
-                    <TimelineItem
-                      dateText={item.dateText}
-                      dateInnerStyle={{ background: theme.accentColor }}
-                      style={styles.itemStyle}
-                      bodyContainerStyle={{ color: theme.color }}
-                    >
-                      <h2 className="item-title">
-                        {item.title}
-                      </h2>
-                      <div style={styles.subtitleContainerStyle}>
-                        <h4 style={{ ...styles.subtitleStyle, color: theme.accentColor }}>
-                          {item.subtitle}
-                        </h4>
-                        {item.workType && (
-                        <h5 style={styles.inlineChild}>
-                          &nbsp;&middot;
+      <div className="section-content-container">
+        <Container>
+          <ol className="experience-timeline" style={timelineStyle}>
+            {data.experiences.map((item) => (
+              <li key={item.title + item.dateText} className="experience-item">
+                <Reveal className="experience-item__layout">
+                  <p className="experience-item__date">{item.dateText}</p>
+                  <span className="experience-item__marker" aria-hidden="true" />
+                  <div className="experience-item__body">
+                    <h2 className="item-title">{item.title}</h2>
+                    <p className="experience-item__subtitle">
+                      <span className="experience-item__company">{item.subtitle}</span>
+                      {item.workType && (
+                        <span className="experience-item__work-type">
+                          {' '}
+                          &middot;
                           {' '}
                           {item.workType}
-                        </h5>
-                        )}
-                      </div>
-                      <ul style={styles.ulStyle}>
-                        {item.workDescription.map((point) => (
-                          <li key={point}>
-                            <ReactMarkdown
-                              components={{
-                                p: 'span',
-                              }}
-                            >
-                              {point}
-                            </ReactMarkdown>
-                          </li>
-                        ))}
-                      </ul>
-                    </TimelineItem>
-                  </Fade>
-                ))}
-              </Timeline>
-            </Container>
-          </div>
-        ) : <FallbackSpinner /> }
+                        </span>
+                      )}
+                    </p>
+                    <ul className="experience-item__points">
+                      {item.workDescription.map((point) => (
+                        <li key={point}>
+                          <Markdown components={{ p: 'span' }}>{point}</Markdown>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </div>
     </>
   );
 }

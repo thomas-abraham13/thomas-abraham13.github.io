@@ -1,48 +1,44 @@
-import React, { Suspense } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router';
 import FallbackSpinner from './components/FallbackSpinner';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
-import endpoints from './constants/endpoints';
-import useProfileJson from './hooks/useProfileJson';
+import NotFound from './components/NotFound';
+import routes from './profile/routes.json';
 
-const sectionComponents = {
-  About: React.lazy(() => import('./components/About')),
-  Skills: React.lazy(() => import('./components/Skills')),
-  Education: React.lazy(() => import('./components/Education')),
-  Experience: React.lazy(() => import('./components/Experience')),
-  Projects: React.lazy(() => import('./components/Projects')),
+export const sectionComponents = {
+  About: lazy(() => import('./components/About')),
+  Skills: lazy(() => import('./components/Skills')),
+  Education: lazy(() => import('./components/Education')),
+  Experience: lazy(() => import('./components/Experience')),
+  Projects: lazy(() => import('./components/Projects')),
 };
 
 function MainApp() {
-  const data = useProfileJson(endpoints.routes);
-
   return (
     <div className="MainApp">
       <NavBar />
       <main className="main">
         <Suspense fallback={<FallbackSpinner />}>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            {data
-              && data.sections.map((route) => {
-                const SectionComponent = sectionComponents[route.component];
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {routes.sections.map((route) => {
+              const SectionComponent = sectionComponents[route.component];
 
-                if (!SectionComponent) {
-                  return null;
-                }
+              if (!SectionComponent) {
+                return null;
+              }
 
-                return (
-                  <Route
-                    key={route.path}
-                    path={route.path}
-                    render={() => (
-                      <SectionComponent header={route.headerTitle} />
-                    )}
-                  />
-                );
-              })}
-          </Switch>
+              return (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  element={<SectionComponent header={route.headerTitle} />}
+                />
+              );
+            })}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </Suspense>
       </main>
     </div>
