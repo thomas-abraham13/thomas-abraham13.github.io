@@ -34,7 +34,8 @@
                 },
                 {
                     "icon": "images/skills/javascript.webp",
-                    "title": "JavaScript"
+                    "title": "JavaScript",
+                    "link": "https://www.sololearn.com/en/certificates/CC-E0RCB9GQ"
                 },
                 {
                     "icon": "images/skills/typescript.webp",
@@ -94,6 +95,11 @@
                 {
                     "icon": "images/skills/jira.webp",
                     "title": "Jira"
+                },
+                {
+                    "icon": "images/skills/google-cloud.svg",
+                    "title": "Google Cloud",
+                    "link": "https://www.skills.google/public_profiles/2cba0e8f-8b54-45cb-84ac-d9142ef2722a"
                 }
             ]
         }

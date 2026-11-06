@@ -55,8 +55,8 @@ function Skills({ header }) {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      title={`View ${item.title} certificate`}
-                      aria-label={`${item.title} – view certificate (opens in a new tab)`}
+                      title={`View ${item.title} credential`}
+                      aria-label={`${item.title} – view credential (opens in a new tab)`}
                     >
                       {content}
                     </a>
