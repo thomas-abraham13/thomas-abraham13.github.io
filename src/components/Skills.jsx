@@ -12,7 +12,6 @@ const styles = {
     width: 75,
     objectFit: 'contain',
     margin: 10,
-    marginBottom: 0,
   },
   introTextContainer: {
     whiteSpace: 'pre-wrap',
@@ -38,17 +37,14 @@ function Skills({ header }) {
                 <h3>{group.title}</h3>
                 {group.items.map((item) => {
                   const content = (
-                    <>
-                      <img
-                        style={styles.iconStyle}
-                        src={resolvePublicPath(item.icon)}
-                        alt=""
-                        width={75}
-                        height={75}
-                        loading="lazy"
-                      />
-                      <p>{item.title}</p>
-                    </>
+                    <img
+                      style={styles.iconStyle}
+                      src={resolvePublicPath(item.icon)}
+                      alt={item.title}
+                      width={75}
+                      height={75}
+                      loading="lazy"
+                    />
                   );
 
                   return item.link ? (
@@ -65,7 +61,12 @@ function Skills({ header }) {
                       {content}
                     </a>
                   ) : (
-                    <div key={item.title} className="skill-item" style={styles.skillItem}>
+                    <div
+                      key={item.title}
+                      className="skill-item"
+                      style={styles.skillItem}
+                      title={item.title}
+                    >
                       {content}
                     </div>
                   );

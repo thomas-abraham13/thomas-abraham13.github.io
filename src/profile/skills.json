@@ -1,33 +1,55 @@
 {
     "intro": "These are some of the major languages, technologies, tools and platforms I have experience with:",
-    "skills": [{
-        "title": "Languages",
-        "items" : [
-            {
-                "icon":"images/skills/html.webp",
-                "title": "HTML"
-            },
-            {
-                "icon":"images/skills/css.webp",
-                "title": "CSS"
-            },
-            {
-                "icon": "images/skills/javascript.webp",
-                "title": "JavaScript"
-            },
-            {
-                "icon": "images/skills/typescript.webp",
-                "title": "TypeScript"
-            },
-            {
-                "icon": "images/skills/python.webp",
-                "title": "Python"
-            },
-            {
-                "icon": "images/skills/mysql.webp",
-                "title": "SQL"
-            }
-        ]},
+    "skills": [
+        {
+            "title": "AI",
+            "items": [
+                {
+                    "icon": "images/skills/claude-api.svg",
+                    "title": "Claude API",
+                    "link": "https://verify.skilljar.com/c/9u87nszuhx3r"
+                },
+                {
+                    "icon": "images/skills/model-context-protocol.svg",
+                    "title": "Model Context Protocol",
+                    "link": "https://verify.skilljar.com/c/56pbcskyj8yy"
+                },
+                {
+                    "icon": "images/skills/claude-code.svg",
+                    "title": "Claude Code",
+                    "link": "https://verify.skilljar.com/c/9ii8kbzmc7m3"
+                }
+            ]
+        },
+        {
+            "title": "Languages",
+            "items" : [
+                {
+                    "icon":"images/skills/html.webp",
+                    "title": "HTML"
+                },
+                {
+                    "icon":"images/skills/css.webp",
+                    "title": "CSS"
+                },
+                {
+                    "icon": "images/skills/javascript.webp",
+                    "title": "JavaScript"
+                },
+                {
+                    "icon": "images/skills/typescript.webp",
+                    "title": "TypeScript"
+                },
+                {
+                    "icon": "images/skills/python.webp",
+                    "title": "Python"
+                },
+                {
+                    "icon": "images/skills/mysql.webp",
+                    "title": "SQL"
+                }
+            ]
+        },
         {
             "title": "Frameworks",
             "items" : [
@@ -74,25 +96,6 @@
                     "title": "Jira"
                 }
             ]
-        },
-        {
-            "title": "AI",
-            "items": [
-                {
-                    "icon": "images/skills/claude-api.svg",
-                    "title": "Claude API",
-                    "link": "https://verify.skilljar.com/c/9u87nszuhx3r"
-                },
-                {
-                    "icon": "images/skills/model-context-protocol.svg",
-                    "title": "Model Context Protocol",
-                    "link": "https://verify.skilljar.com/c/56pbcskyj8yy"
-                },
-                {
-                    "icon": "images/skills/claude-code.svg",
-                    "title": "Claude Code",
-                    "link": "https://verify.skilljar.com/c/9ii8kbzmc7m3"
-                }
-            ]
-    }
-]}
+        }
+    ]
+}

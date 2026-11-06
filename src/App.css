@@ -271,11 +271,6 @@
   transform: translateY(-4px);
 }
 
-.skill-item--link p {
-  text-decoration: underline dotted;
-  text-underline-offset: 4px;
-}
-
 .skill-item--link:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 4px;
