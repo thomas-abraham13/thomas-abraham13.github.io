@@ -12,6 +12,7 @@ export const sectionComponents = {
   Education: lazy(() => import('./components/Education')),
   Experience: lazy(() => import('./components/Experience')),
   Projects: lazy(() => import('./components/Projects')),
+  Resume: lazy(() => import('./components/Resume')),
 };
 
 function MainApp() {

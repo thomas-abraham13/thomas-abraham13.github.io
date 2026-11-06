@@ -75,3 +75,19 @@ test('reveals the remaining projects on "show more"', async () => {
   expect(screen.getByText(lastProject)).toBeInTheDocument();
   expect(screen.queryByRole('button', { name: /show more/i })).not.toBeInTheDocument();
 });
+
+test('shows the resume inline with download and print actions', async () => {
+  renderAt('/resume');
+
+  await screen.findByRole('heading', { level: 1, name: 'Resume' });
+
+  expect(screen.getByTitle(/resume/i)).toHaveAttribute(
+    'src',
+    expect.stringContaining('/documents/Thomas-Abraham-Resume.pdf'),
+  );
+  expect(screen.getByRole('button', { name: /download pdf/i })).toHaveAttribute(
+    'download',
+    'Thomas-Abraham-Resume.pdf',
+  );
+  expect(screen.getByRole('button', { name: /print/i })).toBeInTheDocument();
+});

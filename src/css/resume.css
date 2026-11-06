@@ -1,0 +1,31 @@
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.resume-viewer {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto 40px;
+  /* A4 portrait, so the whole page fits without scrolling inside the frame */
+  aspect-ratio: 210 / 297;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+
+.resume-viewer__frame,
+.resume-viewer__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.resume-viewer__image {
+  object-fit: contain;
+}

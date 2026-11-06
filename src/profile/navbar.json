@@ -31,8 +31,7 @@
         },
         {
             "title": "Resume",
-            "href": "resume/Thomas-Abraham-Resume.pdf",
-            "type": "link"
+            "href": "/resume"
         },
         {
             "title": "Documentation",
