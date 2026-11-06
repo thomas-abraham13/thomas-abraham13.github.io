@@ -36,19 +36,40 @@ function Skills({ header }) {
               <div key={group.title}>
                 <br />
                 <h3>{group.title}</h3>
-                {group.items.map((item) => (
-                  <div key={item.title} style={styles.skillItem}>
-                    <img
-                      style={styles.iconStyle}
-                      src={resolvePublicPath(item.icon)}
-                      alt=""
-                      width={75}
-                      height={75}
-                      loading="lazy"
-                    />
-                    <p>{item.title}</p>
-                  </div>
-                ))}
+                {group.items.map((item) => {
+                  const content = (
+                    <>
+                      <img
+                        style={styles.iconStyle}
+                        src={resolvePublicPath(item.icon)}
+                        alt=""
+                        width={75}
+                        height={75}
+                        loading="lazy"
+                      />
+                      <p>{item.title}</p>
+                    </>
+                  );
+
+                  return item.link ? (
+                    <a
+                      key={item.title}
+                      className="skill-item skill-item--link"
+                      style={styles.skillItem}
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`View ${item.title} certificate`}
+                      aria-label={`${item.title} – view certificate (opens in a new tab)`}
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    <div key={item.title} className="skill-item" style={styles.skillItem}>
+                      {content}
+                    </div>
+                  );
+                })}
               </div>
             ))}
           </Container>

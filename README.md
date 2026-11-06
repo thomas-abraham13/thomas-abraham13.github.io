@@ -24,7 +24,7 @@ Built with Vite, React 19 and React Router 7.
 All page content lives in JSON under [`src/profile/`](src/profile) and is bundled
 at build time. Images live under [`public/images/`](public/images) and are
 referenced from the JSON by their path relative to `public/`
-(e.g. `images/projects/nginx.webp`). Prefer WebP, sized to roughly twice the
+(e.g. `images/projects/nginx-streaming.webp`). Prefer WebP, sized to roughly twice the
 display size.
 
 New pages are added in `src/profile/routes.json` (and a matching component in

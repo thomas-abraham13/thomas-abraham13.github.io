@@ -257,3 +257,35 @@
     align-self: flex-start;
   }
 }
+
+.skill-item--link {
+  color: inherit;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.skill-item--link:hover,
+.skill-item--link:focus-visible {
+  color: inherit;
+  transform: translateY(-4px);
+}
+
+.skill-item--link p {
+  text-decoration: underline dotted;
+  text-underline-offset: 4px;
+}
+
+.skill-item--link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-item--link,
+  .skill-item--link:hover,
+  .skill-item--link:focus-visible {
+    transition: none;
+    transform: none;
+  }
+}

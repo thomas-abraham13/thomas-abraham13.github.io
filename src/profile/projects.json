@@ -1,7 +1,7 @@
 {
     "projects" : [
         {
-            "image" : "images/projects/wheel_of_names.webp",
+            "image" : "images/projects/wheel-of-names.webp",
             "title": "Wheel of Names",
             "bodyText": "- A shareable wheel where anyone with the same link can rename the wheel, add or remove names, and spin for a winner. \n - Wheels live-sync between browsers using Firebase anonymous authentication and Firestore, protected by security rules, with a local storage fallback. \n - Includes a Node server for self-hosting with live updates, and automated tests covering input validation, the spin maths and every API route, run in GitHub Actions.",
             "links": [
@@ -42,7 +42,7 @@
             ]
         },
         {
-            "image" : "images/projects/nginx.webp",
+            "image" : "images/projects/nginx-streaming.webp",
             "title": "Nginx Streaming",
             "bodyText": "- Simple web app for TV/STB that utilises an open source player to load in a manifest stream.",
             "links": [
@@ -61,7 +61,7 @@
             ]
         },
         {
-            "image" : "images/projects/manga_bot.webp",
+            "image" : "images/projects/manga-bot.webp",
             "title": "Manga Bot",
             "bodyText": "- Script to convert online manga to PDF and send it to me on Slack",
             "links": [
@@ -78,7 +78,7 @@
             ]
         },
         {
-            "image" : "images/projects/friends.webp",
+            "image" : "images/projects/puppeteer-friends-easter-eggs.webp",
             "title": "Puppeteer - Friends Easter Eggs",
             "bodyText": "- The main purpose of this project was to gain a basic understanding of puppeteer. \n - Navigate to each member of the cast of Friends(1994) on Google and then display the easter eggs related to each one of them.",
             "links": [
@@ -93,7 +93,7 @@
             ]
         },
         {
-            "image" : "images/projects/nba_scraper.webp",
+            "image" : "images/projects/nba-web-scraper.webp",
             "title": "NBA Web Scraper",
             "bodyText": "- Web scraping is the process of extracting and restructuring data from a website, usually to allow for some kind of eventual analysis. \n - Aim of this project is to scrape NBA game data which can then further be used for various other projects.",
             "links": [
@@ -111,7 +111,7 @@
             ]
         },
         {
-            "image" : "images/projects/predictive_modelling.webp",
+            "image" : "images/projects/nba-seed-predictive-modelling.webp",
             "title": "Predictive Modelling for NBA Seeds",
             "bodyText": "- This research was conducted in partial fulfilment for the degree of Master of Computer Science. \n - I sought to analyse the widely available National Basketball Association (NBA) statistics and attempt to predict the final seeds of each team at the end of the regular season.",
             "links": [

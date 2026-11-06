@@ -6,7 +6,7 @@
             "cardSubtitle":"Queen Mary University of London",
             "cardDetailedText": "",
             "icon" : {
-                "src": "images/education/qmul_icon.webp"
+                "src": "images/education/queen-mary-university-of-london.webp"
             }
         },
         {
@@ -15,7 +15,7 @@
             "cardSubtitle":"CHRIST University, Bangalore",
             "cardDetailedText": "",
             "icon" : {
-                "src": "images/education/christ_icon.webp"
+                "src": "images/education/christ-university.webp"
             }
         }
     ]

@@ -12,7 +12,7 @@
                 "title": "CSS"
             },
             {
-                "icon": "images/skills/js.webp",
+                "icon": "images/skills/javascript.webp",
                 "title": "JavaScript"
             },
             {
@@ -54,10 +54,11 @@
             "items": [
                 {
                     "icon": "images/skills/git.webp",
-                    "title": "Git"
+                    "title": "Git",
+                    "link": "https://www.udemy.com/certificate/UC-4fc467a0-ae7d-4384-a5f4-4d74d9b8692e/"
                 },
                 {
-                    "icon": "images/skills/charles_proxy.webp",
+                    "icon": "images/skills/charles-proxy.webp",
                     "title": "Charles Proxy"
                 },
                 {
@@ -71,6 +72,26 @@
                 {
                     "icon": "images/skills/jira.webp",
                     "title": "Jira"
+                }
+            ]
+        },
+        {
+            "title": "AI",
+            "items": [
+                {
+                    "icon": "images/skills/claude-api.svg",
+                    "title": "Claude API",
+                    "link": "https://verify.skilljar.com/c/9u87nszuhx3r"
+                },
+                {
+                    "icon": "images/skills/model-context-protocol.svg",
+                    "title": "Model Context Protocol",
+                    "link": "https://verify.skilljar.com/c/56pbcskyj8yy"
+                },
+                {
+                    "icon": "images/skills/claude-code.svg",
+                    "title": "Claude Code",
+                    "link": "https://verify.skilljar.com/c/9ii8kbzmc7m3"
                 }
             ]
     }
