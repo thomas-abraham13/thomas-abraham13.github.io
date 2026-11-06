@@ -1,6 +1,30 @@
 {
     "projects" : [
         {
+            "image" : "images/projects/wheel_of_names.webp",
+            "title": "Wheel of Names",
+            "bodyText": "- A shareable wheel where anyone with the same link can rename the wheel, add or remove names, and spin for a winner. \n - Wheels live-sync between browsers using Firebase anonymous authentication and Firestore, protected by security rules, with a local storage fallback. \n - Includes a Node server for self-hosting with live updates, and automated tests covering input validation, the spin maths and every API route, run in GitHub Actions.",
+            "links": [
+                {
+                    "text": "GitHub",
+                    "href": "https://github.com/thomas-abraham13/thomas-wheel-of-names"
+                },
+                {
+                    "text": "Live App",
+                    "href": "https://thomas-abraham13.github.io/thomas-wheel-of-names/"
+                }
+            ],
+            "tags" : [
+                "JavaScript",
+                "HTML",
+                "CSS",
+                "Firebase",
+                "Firestore",
+                "Node.js",
+                "GitHub Actions"
+            ]
+        },
+        {
             "image" : "images/projects/bindicator.webp",
             "title": "Bindicator",
             "bodyText": "- Script that navigates to a council website, enters the required information and then stores the bin collection dates in variables. \n - Those variables are then saved as a .json and sent to slack via a POST method using a webhook. \n - The process of receiving messages periodically was automated by creating a cron job.",
