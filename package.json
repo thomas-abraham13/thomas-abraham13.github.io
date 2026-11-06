@@ -15,7 +15,7 @@
     "test:watch": "vitest",
     "lint": "eslint . --ext .js,.jsx",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npx --yes gh-pages@6 -d build"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
@@ -42,7 +42,6 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "gh-pages": "^6.3.0",
     "jsdom": "^26.1.0",
     "vite": "^6.4.5",
     "vitest": "^4.1.12"
